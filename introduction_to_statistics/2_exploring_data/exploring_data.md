@@ -134,6 +134,8 @@ Quantities representing the centrality of data are:
     and then get the central value, so we can say that 50% of the population is
     below or equal to that value
 * Mode (most frequent observation), not very useful for numerical data
+* Midrange (this is rarely used) it is basically an average with only max and
+    min values, this is used for example with temperatures
 
 N.B.: if the number of data points is even, in order to compute the mode, e just
 take the average of the two central values.
@@ -155,6 +157,10 @@ In symmetric distributions, the mean and the median are roughly equal to each
 other.
 Observation: In a left skewed distribution, less than 50% of the data are below
 the mean.
+
+N.B.: In general we use as measure of center the mean if a set of data points
+is symmetric, while if their distribution is skewed, then a more reliable
+measure of center is the median.
 
 
 ### Measures of Spread
@@ -298,6 +304,17 @@ Contingency table are tables used to compare variables, and generally contain
 absolute frequencies but we can just take each cell and divide it by the last
 row values and obtain a relative percentage value
 
+We generally Use contingency tables and segmented bar plots or mosaic plots 
+to assess the relationship between two categorical variables.
+
+35/290 ≈ 12% of Republicans, 146/341 ≈ 43% of Democrats, and 69/341 ≈ 20% of
+Independents think that teachers belonging to unions or bargaining associations
+helped the quality of public school education in the United States. Since there
+is considerable differences between these proportions, the results of the survey
+suggest a relationship between opinion on teachers belonging to unions or
+bargaining associations and political party affiliation.
+
+
 ### Bar Plot Variations
 
 There are some useful variations on the classical bar plot which are useful
@@ -325,6 +342,108 @@ flipped by 90 degrees in this case.
 
 
 
-## Introduction to Inference
+## A taste of Inference
 
+Inferential statistics is in general used to make inferences about a population
+just starting from a sample taken from that population.
+
+In inferential statistics as we will see, we will often work with statistical
+test. These procedures are also called "hypothesis testing" and in this
+framework we:
+    * Start with a **null hypothesis** $$ \(H_0\) $$ that represents 
+        the status quo, or more in general, states most of the times,
+        that there are no differences, in what we are studying, analyzing
+    * Set an **alternative hypothesis** $$ \(H_A\) $$ that represents the 
+        research question, that we are testing for, or most of the times,
+        that there is a difference between the things that we are analyzing
+
+We conduct the hypothesis test (from now on HT) under the assumption that the
+null hypothesis is true, either via simulation or theoritical methods.
+
+If the collected data with the test results suggest that the data do not provide
+convincin evidence for the alternative hypothesis, we should stick with the null
+hypothesis.
+
+If the test data provides convincing evidence, we reject the nul hypothesis in
+favor of the alternative hypothesis.
+
+If we conduct an experiment we generally search for some sort of difference in
+our sample, something that is done, is generally to build a distribution related
+to the differences we find in our samples, from this distribution, the null
+hypothesis represents the `zero`, remember indeed that the null hypothesis
+generally represents the fact that there are no differences.
+
+
+So to recap, hypothesis testing is generally performed as follows:
+
+* Set a null and an alternative hypothesis
+* simulate the experiment assuming that the null hypothesis is true
+* evaluate the probability of observing an outcome at least as extreme as the
+    one observed in the original data
+* and if this probability is low, we reject the null hypothesis in favor of the
+    alternative
+
+The probability of observing data at least as extreme as the one observed in the
+original study under the assumption that the null hypothesis is true, is called
+the p-value.
+
+The **p-value** is one of the criteria used when making decisions between competing
+hypothesis.
+
+
+### Exercise:  Example of Inferential Study
+
+In 1948, Austin Bradford Hill, designed a study to test a new treatment for
+tuberculosis that at the beginning of the study there was no evidence whether it
+would be any better or worse than bed rest. He randomly assigned some patients
+who volunteered to be a part of this study to receive the treatment
+Streptomycin, an antibiotic. The other patients received only bed rest as the
+control group. Hill then observed the patients’ outcomes: which patients died
+and which recovered. The results of the study are shown below.
+
+This is the contingency table:
+
+```table
+        Died    Recovered   Total
+Control  14       38        52
+Strepto   4       51        55
+-----------------------------------
+Total    18       89       107
+```
+
+
+We use the following simulation test if there is a difference between the
+recovery rates under the two treatments: We write “died” on 18 index cards and
+“survived” on 89 index cards to indicate whether or not a patient died. Next, we
+shuffle the cards and deal them into two groups of 52 and 55, for control and
+treatment, respectively. We then calculate the simulated difference between the
+recovery rates in Streptomycin and control groups (p̂Streptomycin − p̂Control),
+and record this value. We repeat this simulation 100 times. The histogram below
+shows the distribution simulated difference between the recovery rates in these
+100 simulations. 
+
+The distirbution seems gaussian with tails ending at 0.2 and -0.2.
+
+
+SOLUTION
+
+Note that an observed difference in sample statistics suggesting dependence
+between variables may be due to random chance, and that we need to use
+hypothesis testing to determine if this difference is too large to be attributed
+to random chance. Set up null and alternative hypotheses for testing for
+independence between variables, and evaluate the data support for these
+hypotheses using a simulation technique.
+
+The alternative hypothesis should be that there is a difference between the
+recovery rates under the two treatments.
+
+The observed difference between the recovery rates is 
+
+```
+p_strepto - p_control = 51/55 - 38/52 = 0.93 - 0.73 = 0.20
+```
+
+There is 1 simulation where the simulated difference is ≥0.20\ge 0.20≥0.20,
+and since we're doing a two sided hypothesis test, the p-value is
+0.01×2=0.02.
 

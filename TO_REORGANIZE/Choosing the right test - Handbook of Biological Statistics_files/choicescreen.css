@@ -1,0 +1,414 @@
+body    {
+        font-size: 76%;
+        }
+
+#banner {
+	position: absolute;
+        top: 4px;
+        width: 100%;
+        max-width: 900px;
+        height: 180px;    
+        margin: 0px;
+	    border-top: 3px solid; 
+        border-bottom: 3px solid;
+        padding: 3px 0px 0px 0px;  
+	    font-family:palatino, georgia, serif; 
+        text-align: left;
+	}
+
+#banner h1 {
+        font-size: 3.5em;
+        font-variant: small-caps;
+        margin-top: -175px;
+        text-indent: 0.8em;
+        border: 0px;
+        padding: 0px;
+        z-index: 2;
+        }
+
+#banner h2 {
+        font-size: 1.8em;
+        margin-top: -30px;
+        text-indent: 14.2em;
+        border: 0px;
+        padding: 0px;
+        z-index: 2;
+        }
+
+#banner img {
+        z-index: 1;
+        }
+
+
+#content {
+	position:absolute; 
+	top: 200px; 
+	left: 10px; 
+    	margin: 0px 20px 0px 20px;
+    	max-width: 900px;  
+	font-family: palatino, georgia,  serif;
+    	background-color:#FFFFFF;
+	}
+
+#content h1 {
+        text-align: center;
+        margin-top: 0.5em;
+        margin-bottom: 0.2em;
+        padding-top: 0em;
+        padding-bottom: 0em;
+        font-size: 2.4em;
+        }
+
+#content h3 {
+        margin-top: 1.0em;
+	margin-bottom: 0.2em;
+        font-size: 1.7em;
+	}
+
+#content .navarrow {
+        text-align: center;
+        }
+
+#content hr { 
+        margin: 6px;
+        padding: 0px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-left: 0px;
+        border-right: 0px;
+        height: 0px;    
+        color: black;
+        background-color: black;
+        }
+
+#content p {
+	margin-top: 0in; 
+	margin-bottom: 0in; 
+	text-indent: 1.5em;
+        font-size: 1.2em;
+        line-height: 1.3em;
+	}
+
+#content .footnote {
+	font-size: 1em;
+        line-height: 1.4em;
+        margin-top: 1.2em;
+        text-indent: 0em;
+	}
+
+#content .noscreen {
+        display: none;
+        }
+
+#content table {
+	border-spacing: 0em;  
+	border-width: 3px; 
+	border-style: solid none solid none; 
+	margin-left: 0em;
+	margin-top: 1.4em; 
+	margin-bottom: 1.4em;
+        font-size: 1.1em;
+        caption-side: top;
+	}
+
+
+#content th {
+	border-width: 1px; 
+	border-style: solid none solid none; 
+	text-align: center; 
+        vertical-align: bottom;
+	padding: 1px 15px 1px 5px;
+	}
+
+#content td {
+	padding: 1px 5px 1px 5px;
+	border-width: 1px; 
+	border-style:  none none solid none;
+	text-align: left;
+        padding: 1px 25px 1px 1px;
+	}
+
+#content .varnum {
+	text-align: center;
+	font-size: 2em;
+	}
+
+/*IMG RE-SIZE*/
+#content img {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+}
+
+
+
+/*ADAPTIVE MEDIA QUERIES*/
+
+/* FOR WINDOWS GREATER THAN 950px */
+
+@media (min-width: 950px) {
+        /*Centers content when window size is bigger than 950px*/
+        #page-wrap {
+          position: relative;
+          width: 900px;
+          margin: 0 auto;
+        }
+
+        /*Hides Contents/outline link*/
+        .hide {
+          display: none;
+        }
+}
+
+/* FOR WINDOWS 780 to 950px */
+
+@media (max-width: 950px) {
+        /*Sets up positioning*/
+        #page-wrap {
+          position: relative;
+          width: 100%;
+          margin: 0 auto;
+        }
+
+/* @@@@@ substitutes smaller banner @@@@@ */
+        #banner {
+        width: 780px;
+        height: 156px; 
+        /*centers banner*/
+        left: 50%;
+        margin-left: -390px;    
+	}
+
+        #banner h1 {
+        font-size: 3.0em;
+        margin-top: -152px;
+        text-indent: 0.7em;
+        }
+
+        #banner h2 {
+        font-size: 1.6em;
+        margin-top: -26px;
+        text-indent: 12em;
+        }
+
+        #banner img {
+        width: 780px;
+        height: 153px;
+        }
+
+/* @@@@@ moves the outline and content up to fit the smaller banner @@@@@ */
+
+        #outline {
+        top: 191px;
+        }
+  
+        #content {
+        top: 173px;
+        }
+
+        /*Hides Contents/outline link*/
+        .hide {
+          display: none;
+        }
+
+        /*Centers content and allows to resize with the window*/
+        #content-wrap {
+          width: 100%;
+          max-width: 780px;
+        }
+
+        #content {
+          width: 75%;
+          margin: 0 auto;
+        }
+}
+
+/* FOR WINDOWS 480 to 780px */
+
+@media (max-width: 780px) {
+        /*Resets default margin so banner can span full width of page in smaller sizes*/
+        body {
+          margin-left: 0px;
+          margin-right: 0px;
+        }
+        
+/* @@@@@ substitutes smaller banner @@@@@ */
+        #banner {
+        width: 480px;
+        height: 96px; 
+        /*centers banner*/
+        left: 50%;
+        margin-left: -240px;     
+	}
+
+        #banner h1 {
+        font-size: 1.9em;
+        margin-top: -93px;
+        text-indent: 0.4em;
+        }
+
+        #banner h2 {
+        font-size: 1em;
+        margin-top: -16px;
+        text-indent: 11em;
+        }
+
+        #banner img {
+        width: 480px;
+	height: 94px;
+        }
+
+/* @@@@@ moves the content up to fit the smaller banner @@@@@ */
+
+        #content {
+        top: 117px;
+        }
+
+        /*Hides the outline*/
+        #outline {
+          display: none;
+        }
+
+        /*Displays link to outline*/
+        .hide {
+          display: inline-block;
+        }
+
+        /*Centers content and allows to resize with the window*/
+        #content-wrap {
+          width: 100%;
+          max-width: 780px;
+        }
+
+        #content {
+          position: relative;
+          width: 90%;
+          left: 0px;
+          margin: 0 auto;
+        }
+
+	#content .right-table {
+	  float: none;
+          margin: 0 auto;
+          }
+
+	#content .left-table {
+	  float: none;
+          margin: 0 auto;
+          }
+
+ 	#content .right-figure {
+          float: none;
+          margin: 0 auto;
+          }
+
+ 	#content .left-figure {
+          float: none;
+          margin: 0 auto;
+          }
+}
+
+/* FOR WINDOWS 320 to 480px */
+
+/*Re-sizes & moves nav links for smaller sizes*/ 
+@media (max-width: 494px) {
+
+        body {
+        font-size: 65%;
+        }
+
+/* @@@@@ substitutes smaller banner @@@@@ */
+        #banner {
+        width: 320px;
+        height: 64px;  
+        background-color:LightSteelBlue;  
+         /*centers banner*/
+        left: 50%;
+        margin-left: -160px; 
+	}
+
+        #banner h1 {
+        font-size: 1.6em;
+        margin-top: 5px;
+        text-indent: 0.5em;
+        }
+
+        #banner h2 {
+        font-size: 1.1em;
+        margin-top: -5px;
+        text-indent: 10em;
+        }
+
+        #banner img {
+        display: none;
+        }
+
+/* @@@@@ moves the outline and content up to fit the smaller banner @@@@@ */
+  
+        #content {
+        top: 85px;
+        }
+
+        #content .navarrow {
+          font-size: 1.30em;
+        }
+
+	#content .nosmall {
+          display: none;
+        }
+
+        #content .referencenoprint {
+          display: none;
+        }
+
+	#content h1 {
+          font-size: 1.7em;
+        }
+
+	#content h3 {
+          font-size: 1.5em;
+        }
+
+	#content h4 {
+          font-size: 1.3em;
+        }
+}
+
+/* FOR WINDOWS LESS THAN 320 px */
+@media (max-width: 320px) {
+
+/* @@@@@ substitutes smaller banner @@@@@ */
+        #banner {
+        width: 240px;
+        height: 48px; 
+        /*centers banner*/
+        left: 50%;
+        margin-left: -120px;    
+	}
+
+        #banner h1 {
+        font-size: 1.1em;
+        margin-top: 0px;
+        text-indent: 0.2em;
+        }
+
+        #banner h2 {
+        font-size: .9em;
+        margin-top: -5px;
+        text-indent: 6em;
+        }
+
+
+/* @@@@@ moves the navbox, outline and content up to fit the smaller banner @@@@@ */
+
+        #content {
+        top: 67px;
+        }
+
+        #content .navarrow {
+          font-size: 1.10em;
+        }
+
+}
+
+

@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head> 
+<meta http-equiv="Content-Type" name="viewport" content="text/html; charset=UTF-8">
+<title>Choosing the right test  - Handbook of Biological Statistics</title>
+<link rel="STYLESHEET" type="text/css" href="Choosing%20the%20right%20test%20-%20Handbook%20of%20Biological%20Statistics_files/print.css" media="print">
+<link rel="STYLESHEET" type="text/css" href="Choosing%20the%20right%20test%20-%20Handbook%20of%20Biological%20Statistics_files/choicescreen.css" media="screen">
+<link rel="shortcut icon" type="image/gif" href="http://www.biostathandbook.com/pix/favicon.gif">
+</head>
+<body> 
+
+<div id="page-wrap">
+  
+
+<div id="banner">
+<img src="Choosing%20the%20right%20test%20-%20Handbook%20of%20Biological%20Statistics_files/banner.jpg" alt="" width="100%" height="auto">
+ 
+<h1>Handbook of Biological Statistics</h1>
+<h2>John H. McDonald</h2>
+</div>
+
+<div id="content-wrap">
+<div id="content">
+
+<h3 class="navarrow">
+<a href="http://www.biostathandbook.com/sasintro.html">⇐ Previous topic</a>|<br>
+  <a href="http://www.biostathandbook.com/outline.html" class="hide">Table of Contents</a></h3>
+<hr class="noprint">
+
+<h1><a name="bigchart">Choosing a statistical test</a></h1> 
+
+<p>This table is designed to help you decide which statistical test or 
+descriptive statistic is appropriate for your experiment. In order to 
+use it, you must be able to identify all the variables in the data set 
+and tell <a href="http://www.biostathandbook.com/variabletypes.html">what kind of variables</a> they are.  </p>
+ 
+<table>
+
+<tbody><tr>
+<th>test</th>
+<th>nominal variables</th>
+<th>measurement variables</th>
+<th>ranked variables</th>
+<th>purpose</th>
+<th>notes</th>
+<th>example</th>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/exactgof.html">Exact test for goodness-of-fit</a></td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td>test fit of observed frequencies to expected frequencies</td>
+<td>use for small sample sizes (less than 1000)</td>
+<td>count the number of red, pink and white flowers in a genetic cross, test fit to expected 1:2:1 ratio, total sample &lt;1000</td></tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/chigof.html">Chi-square test of goodness-of-fit</a></td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td>test fit of observed frequencies to expected frequencies</td>
+<td>use for large sample sizes (greater than 1000)</td>
+<td>count the number of red, pink and white flowers in a genetic cross, test fit to expected 1:2:1 ratio, total sample &gt;1000</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/gtestgof.html"><em>G</em>–test of goodness-of-fit</a></td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td>test fit of observed frequencies to expected frequencies</td>
+<td>used for large sample sizes (greater than 1000)</td>
+<td>count the number of red, pink and white flowers in a genetic cross, test fit to expected 1:2:1 ratio, total sample &gt;1000</td>
+</tr>
+
+
+<tr>
+<td><a href="http://www.biostathandbook.com/repgtestgof.html">Repeated <em>G</em>–tests of goodness-of-fit</a></td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td>test fit of observed frequencies to expected frequencies in multiple experiments</td>
+<td>-</td>
+<td>count the number of red, pink and white flowers in a genetic cross, test fit to expected 1:2:1 ratio, do multiple crosses</td>
+</tr>
+
+<tr>
+<th>test</th>
+<th>nominal variables</th>
+<th>measurement variables</th>
+<th>ranked variables</th>
+<th>purpose</th>
+<th>notes</th>
+<th>example</th>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/fishers.html">Fisher's exact test</a></td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td>test hypothesis that proportions are the same in different groups</td>
+<td>use for small sample sizes (less than 1000)</td>
+<td>count the number of live and dead patients after treatment with drug
+ or placebo, test the hypothesis that the proportion of live and dead is
+ the same in the two treatments, total sample &lt;1000</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/chiind.html">Chi-square test of independence</a></td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td>test hypothesis that proportions are the same in different groups</td>
+<td>use for large sample sizes (greater than 1000)</td>
+<td>count the number of live and dead patients after treatment with drug
+ or placebo, test the hypothesis that the proportion of live and dead is
+ the same in the two treatments, total sample &gt;1000</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/gtestind.html"><em>G</em>–test of independence</a></td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td>test hypothesis that proportions are the same in different groups</td>
+<td>large sample sizes (greater than 1000)</td>
+<td>count the number of live and dead patients after treatment with drug
+ or placebo, test the hypothesis that the proportion of live and dead is
+ the same in the two treatments, total sample &gt;1000</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/cmh.html">Cochran-Mantel-Haenszel test</a></td>
+<td class="varnum">3</td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td>test hypothesis that proportions are the same in repeated pairings of two groups</td>
+<td>alternate hypothesis is a consistent direction of difference</td>
+<td>count the number of live and dead patients after treatment with drug
+ or placebo, test the hypothesis that the proportion of live and dead is
+ the same in the two treatments, repeat this experiment at different 
+hospitals</td></tr>
+
+<tr>
+<th>test</th>
+<th>nominal variables</th>
+<th>measurement variables</th>
+<th>ranked variables</th>
+<th>purpose</th>
+<th>notes</th>
+<th>example</th>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/central.html">Arithmetic mean</a></td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>description of central tendency of data</td>
+<td>-</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/central.html">Median</a></td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>description of central tendency of data</td>
+<td>more useful than mean for very skewed data</td>
+<td>median height of trees in forest, if most trees are short seedlings and the mean would be skewed by a few very tall trees</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/dispersion.html">Range</a></td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>description of dispersion of data</td>
+<td>used more in everyday life than in scientific statistics</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/dispersion.html">Variance</a></td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>description of dispersion of data</td>
+<td>forms the basis of many statistical tests; in squared units, so not very understandable</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/dispersion.html">Standard deviation</a></td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>description of dispersion of data</td>
+<td>in same units as original data, so more understandable than variance</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/standarderror.html">Standard error of the mean</a></td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>description of accuracy of an estimate of a mean</td>
+<td>-</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/confidence.html">Confidence interval</a></td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>description of accuracy of an estimate of a mean</td>
+<td>-</td>
+<td>-</td>
+</tr>
+
+<tr>
+<th>test</th>
+<th>nominal variables</th>
+<th>measurement variables</th>
+<th>ranked variables</th>
+<th>purpose</th>
+<th>notes</th>
+<th>example</th>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/onesamplettest.html">One-sample <em>t</em>–test </a></td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that the mean value of the measurement variable equals a theoretical expectation</td>
+<td>-</td>
+<td>blindfold people, ask them to hold arm at 45° angle, see if mean angle is equal to 45°</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/twosamplettest.html">Two-sample <em>t</em>–test </a></td>
+<td class="varnum">1</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that the mean values of the measurement variable are the same in two groups</td>
+<td>just another name for one-way anova when there are only two groups</td>
+<td>compare mean heavy metal content in mussels from Nova Scotia and New Jersey</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/onewayanova.html">One-way anova </a></td>
+<td class="varnum">1</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that the mean values of the measurement variable are the same in different groups</td>
+<td>-</td>
+<td>compare mean heavy metal content in mussels from Nova Scotia, Maine, Massachusetts, Connecticut, New York and New Jersey</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/onewayanova.html">Tukey-Kramer test</a></td>
+<td class="varnum">1</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>after a significant one-way anova, test for significant differences between all pairs of groups </td>
+<td>-</td>
+<td>compare mean heavy metal content in mussels from Nova Scotia vs. 
+Maine, Nova Scotia vs. Massachusetts, Maine vs. Massachusetts, etc.</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/homoscedasticity.html">Bartlett's test</a> </td>
+<td class="varnum">1</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that the standard deviation of a measurement variable is the same in different groups</td>
+<td>usually used to see whether data fit one of the assumptions of an anova</td>
+<td>compare standard deviation of heavy metal content in mussels from 
+Nova Scotia, Maine, Massachusetts, Connecticut, New York and New Jersey</td>
+</tr>
+
+<tr>
+<th>test</th>
+<th>nominal variables</th>
+<th>measurement variables</th>
+<th>ranked variables</th>
+<th>purpose</th>
+<th>notes</th>
+<th>example</th>
+</tr>
+
+
+<tr>
+<td><a href="http://www.biostathandbook.com/nestedanova.html">Nested anova</a></td>
+<td class="varnum">2+</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>test hypothesis that the mean values of the measurement variable are
+ the same in different groups, when each group is divided into subgroups</td>
+<td>subgroups must be arbitrary (model II)</td>
+<td>compare mean heavy metal content in mussels from Nova Scotia, Maine,
+ Massachusetts, Connecticut, New York and New Jersey; several mussels 
+from each location, with several metal measurements from each mussel</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/twowayanova.html">Two-way anova</a></td>
+<td class="varnum">2</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that different groups, classified two ways, have the same means of the measurement variable</td>
+<td>-</td>
+<td>compare cholesterol levels in blood of male vegetarians, female vegetarians, male carnivores, and female carnivores</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/pairedttest.html">Paired <em>t</em>–test</a></td>
+<td class="varnum">2</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that the means of the continuous variable are the same in paired data</td>
+<td>just another name for two-way anova when one nominal variable represents pairs of observations</td>
+<td>compare the cholesterol level in blood of people before vs. after switching to a vegetarian diet</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/wilcoxonsignedrank.html">Wilcoxon signed-rank test</a></td>
+<td class="varnum">2</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that the means of the measurement variable are the same in paired data</td>
+<td>used when the differences of pairs are severely non-normal</td>
+<td>compare the cholesterol level in blood of people before vs. after 
+switching to a vegetarian diet, when differences are non-normal</td>
+</tr>
+
+<tr>
+<th>test</th>
+<th>nominal variables</th>
+<th>measurement variables</th>
+<th>ranked variables</th>
+<th>purpose</th>
+<th>notes</th>
+<th>example</th>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/linearregression.html">Linear regression</a></td>
+<td class="varnum">–</td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td>see whether variation in an independent variable causes some of the 
+variation in a dependent variable; estimate the value of one unmeasured 
+variable corresponding to a measured variable</td>
+<td>-</td>
+<td>measure chirping speed in crickets at different temperatures, test 
+whether variation in temperature causes variation in chirping speed; or 
+use the estimated relationship to estimate temperature from chirping 
+speed when no thermometer is available</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/linearregression.html">Correlation</a></td>
+<td class="varnum">–</td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td>see whether two variables covary</td>
+<td>-</td>
+<td>measure salt intake and fat intake in different people's diets, to see if people who eat a lot of fat also eat a lot of salt</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/curvilinearregression.html">Polynomial regression</a></td>
+<td class="varnum">–</td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that an equation with X<sup>2</sup>, X<sup>3</sup>, etc. fits the Y variable significantly better than a linear regression</td>
+<td>-</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/ancova.html">Analysis of covariance (ancova)</a></td>
+<td class="varnum">1</td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td>test the hypothesis that different groups have the same regression lines</td>
+<td>first test the homogeneity of slopes; if they are not significantly different, test the homogeneity of the Y-intercepts</td>
+<td>measure chirping speed vs. temperature in four species of crickets, 
+see if there is significant variation among the species in the slope or 
+Y-intercept of the relationships</td>
+</tr>
+
+<tr>
+<th>test</th>
+<th>nominal variables</th>
+<th>measurement variables</th>
+<th>ranked variables</th>
+<th>purpose</th>
+<th>notes</th>
+<th>example</th>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/multipleregression.html">Multiple regression</a></td>
+<td class="varnum">–</td>
+<td class="varnum">3+</td>
+<td class="varnum">–</td>
+<td>fit an equation relating several X variables to a single Y variable</td>
+<td>-</td>
+<td>measure air temperature, humidity, body mass, leg length, see how they relate to chirping speed in crickets</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/simplelogistic.html">Simple logistic regression</a></td>
+<td class="varnum">1</td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td>fit an equation relating an independent measurement variable to the probability of a value of a dependent nominal variable</td>
+<td>-</td>
+<td>give different doses of a drug (the measurement variable), record who lives or dies in the next year (the nominal variable)</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/multiplelogistic.html">Multiple logistic regression</a></td>
+<td class="varnum">1</td>
+<td class="varnum">2+</td>
+<td class="varnum">–</td>
+<td>fit an equation relating more than one independent measurement 
+variable to the probability of a value of a dependent nominal variable</td>
+<td>-</td>
+<td>record height, weight, blood pressure, age of multiple people, see who lives or dies in the next year</td>
+</tr>
+
+<tr>
+<th>test</th>
+<th>nominal variables</th>
+<th>measurement variables</th>
+<th>ranked variables</th>
+<th>purpose</th>
+<th>notes</th>
+<th>example</th>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/exactgof.html#signtest">Sign test</a></td>
+<td class="varnum">2</td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td>test randomness of direction of difference in paired data</td>
+<td>-</td>
+<td>compare the cholesterol level in blood of people before vs. after 
+switching to a vegetarian diet, only record whether it is higher or 
+lower after the switch</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/kruskalwallis.html">Kruskal–Wallis test</a></td>
+<td class="varnum">1</td>
+<td class="varnum">–</td>
+<td class="varnum">1</td>
+<td>test the hypothesis that rankings are the same in different groups</td>
+<td>often used as a non-parametric alternative to one-way anova</td>
+<td>40 ears of corn (8 from each of 5 varieties) are ranked for tastiness, and the mean rank is compared among varieties</td>
+</tr>
+
+<tr>
+<td><a href="http://www.biostathandbook.com/spearman.html">Spearman rank correlation</a></td>
+<td class="varnum">–</td>
+<td class="varnum">–</td>
+<td class="varnum">2</td>
+<td>see whether the ranks of two variables covary</td>
+<td>often used as a non-parametric alternative to regression or correlation</td>
+<td>40 ears of corn are ranked for tastiness and prettiness, see whether prettier corn is also tastier</td>
+</tr>
+
+ </tbody></table>
+
+<hr class="noprint">
+
+<h3 class="navarrow">
+<a href="http://www.biostathandbook.com/sasintro.html">⇐ Previous topic</a>|<br>
+  <a href="http://www.biostathandbook.com/outline.html" class="hide">Table of Contents</a></h3>
+<hr class="noprint">
+
+<p class="footnote">This page was last revised December 4, 2014.  Its address is http://www.biostathandbook.com/testchoice.html. It may be cited as:<br>
+ McDonald, J.H. 2014. Handbook of Biological Statistics (3rd ed.). 
+Sparky House Publishing, Baltimore, Maryland. This web page contains the
+ content of pages 293-296 in <a href="http://www.biostathandbook.com/#print">the printed version</a>.<br><br>
+©2014 by John H. McDonald. You can probably do what you want with this content; see the <a class="printurl" href="http://www.biostathandbook.com/permissions.html">permissions page</a> for details.</p> 
+</div>
+<!--CONTENT-WRAP DIV ENDS-->
+</div>
+<!--PAGE-WRAP DIV ENDS-->
+</div>
+   <style>#content > #center > .dose > .dosesingle,
+#content > #right > .dose > .dosesingle
+{display:none !important;}</style></body></html>
