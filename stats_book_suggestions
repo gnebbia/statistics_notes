@@ -1,0 +1,14 @@
+<fendur> look over the TOC for Statistical Rethinking
+<astronavt> yeah statistical rethinking is a good one
+<astronavt> casella and berger is the classic stats book
+<astronavt> you can learn some stuff out of agresti's categorical data analysis. that is very "traditional" stats
+<astronavt> also an econometrics textbook like stock & watson
+
+
+
+## MACHINE LEARNING HYPERPARAMETER SEARCH
+
+<RandIter> _sfiguser: hyperopt, bocs, automl/HpBandSter
+<RandIter> Don't use grid search or you will be laughed at.
+<RandIter> _sfiguser: are you using Keras or what
+<RandIter> If anyone uses https://pypi.org/project/autokeras/ , let me know how it works out.
