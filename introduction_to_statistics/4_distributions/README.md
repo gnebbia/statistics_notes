@@ -58,7 +58,8 @@ since S is used to denote standard deviations.
 
 * By definition the Z score of the mean of a distribution is zero.
 * Z-scores are used also to identify unusual observations, generally |Z| > 2 are
-    considered unusual observations.
+    considered unusual observations, so observations with more than 2 standard
+    deviations away from the mean
 * Z-scores are definied for **any** distribution, since any distribution will
     have a mean and a standard deviation, so we can compute the Z-score of an
     observation even if it comes from a random variable not following the normal
@@ -151,7 +152,7 @@ distirbution) are on the x axis.
 * since a one-to-one relationship would appear as a straight line ona scatter
     plot, the closer the points are to a perfect straight line, the more
     confident we are about the fact that data follow a normal distribution
-* constructing a normal probability pllot requires calculating prcentiles and
+* constructing a normal probability pllot requires calculating percentiles and
     corresponding Z-scores for each observation which is tedious. Therefore we
     generally rely on software when making these plots
 
@@ -161,4 +162,66 @@ IMAGE: quantile plot interpretation
 ## Binomial Distribution
 
 
+The binomial distribution describes the probability of having exactly $k$
+successes in $n$ independent Bernoulli trials with probability of success $p$.
+
+So $1-p$ is the probability of insuccess.
+
+Binomial distribution helps us introduce, the number of scenarios in which we
+have k successes in n trials.
+
+P(k successes in n trials) = \binom(n k) p^k (1-p) ^(n-k)
+In R we can evaluate this by using `choose(9,2)` which gives us the number of
+scenarios which are characterized by two successes in 9 trials.
+
+We can use more in general a binomial distribution in R with:
+
+```R
+dbinom(8, size = 10, p = 0.13)
+```
+
+
+In order to work with these formulas we require some conditions to be true, so
+what does it take for a random variable to be binomial? What does it take for a
+random variable to be binomial?
+1. the trials must be independent
+2. the number of trials $n$, must be fixed
+3. each trial outcome must be classified as a success or a failure
+4. the probability of success $p$, must be the same for each trial
+
+
+The mean of a binomial distribution is:
+$\mu = np$
+so this answers the question, among a random sample of $n$, how many would you
+expect to be successes ? 
+
+The standard deviation is: 
+$\sigma = \sqrt{np(1-p)}$
+
+
+Notice that we can approximate a binomial distribution to a normal distribution,
+especially when $n$ is large, the larger $n$ the more we can approximate to a
+normal distribution, to this purpose for us it is just enough to model our
+binomial data with a normal distribution with mean and standard deviation
+equal to the binomial distribution mean and standard deviation.
+
+What is the minimum $n$ to for example be able to approximate a binomial
+distribution to a normal distribution?
+
+The rule of thumb is represented by the **Success-Failure Rule** which states
+that a binomial distribution with at least 10 expected successes and 10 expected
+failures closely follows a normal distribution. So the conditions are:
+
+np >= 10
+n(1-p) >= 10
+
+now if we have p, we can solve for n, and unserstand which is the number of
+trials we need to approximate our binomial distribution to a normal
+distribution.
+
+It is very important to emphasize the fact that this approximation is valid,
+since when we work with inferential statistics, we are going to use a lot of
+methods used with normal distributions with categorical variables, but this is
+possible only when the binomial distribution can be approximated by a normal
+distribution.
 

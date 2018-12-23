@@ -109,6 +109,11 @@ have a right skewed distribution, and so on.
 
 ![alt text](img/boxplot_and_hist.png "Boxplot and Histogram Comparison")
 
+
+Notice that box plots are a visual representation of what is commonly called the
+**five-number summary**, that are: minimum, maximum, 25 percentile, median, and
+75 percentile.
+
 #### Intensity Map
 This can be useful to highlight spatial distribution, so coloring a map with
 different colors depending on the values per map region.
@@ -124,6 +129,9 @@ do not show.
 ### Measures of Center
 
 Now we will see methods for quantifying centers of numerical distributions.
+These are also called "measures of central tendency".
+Occasionally authors use central tendency to denote "the tendency of
+quantitative data to cluster around some central value."
 
 Quantities representing the centrality of data are:
 
@@ -133,6 +141,13 @@ Quantities representing the centrality of data are:
 * Median (midpoint of the distribution, or 50th percentile), we just order data
     and then get the central value, so we can say that 50% of the population is
     below or equal to that value
+* Geometric mean, A geometric mean is often used when comparing different
+    items—finding a single "figure of merit" for these items—when each item has
+    multiple properties that have different numeric ranges. For example, the
+    geometric mean can give a meaningful "average" to compare two companies
+    which are each rated at 0 to 5 for their environmental sustainability, and
+    are rated at 0 to 100 for their financial viability.
+    We require all values to be positive to use the geometric mean.
 * Mode (most frequent observation), not very useful for numerical data
 * Midrange (this is rarely used) it is basically an average with only max and
     min values, this is used for example with temperatures
@@ -174,6 +189,9 @@ There are different quantities to measure the spread, some of these are:
 * variance, this is roughly th average squared deviation from the mean
 * standard deviation, this is the square root of the variance
 * interquartile range
+* median absolute deviation, which is a more robust statistic with respect to
+    standard deviation for skewed distributions, we can say that median absolute
+    deviation stands to standard deviation such as median stands to mean
 
 #### Variance
 
@@ -190,6 +208,26 @@ deviations. So larger deviations will have a larger weight.
 N.B.: Sample variance is indicated with $s^2$ while population variance is
 denoted with $\sigma^2$
 
+Remember that when working with independent random variables, variances add,
+standard deviations don't, so this is an advantage of working with variance,
+and use it instead of other measures.
+
+Also notice that we could use the absolute deviation instead of the square
+deviation, but in some cases we want to give more weight to distant values
+that's another reason to use variance instead of absolute differences.
+
+Other advantages include: The squared difference has nicer mathematical
+properties; it's continuously differentiable (nice when you want to minimize
+it), it's a sufficient statistic for the Gaussian distribution, and it's (a
+version of) the L2 norm which comes in handy for proving convergence and so on.
+
+The mean absolute deviation (the absolute value notation you suggest) is also
+used as a measure of dispersion, but it's not as "well-behaved" as the squared
+error.
+
+
+
+
 
 #### Standard Deviation
 
@@ -200,6 +238,10 @@ square root of the variance.
 
 So this is roughly the average deviation around the mean, and has the same units
 as the data.
+
+We can in general interpret the standard deviation as the average of the distance 
+of each of the data points from the mean of the distribution.
+
 
 
 N.B.: Sample stddev is indicated with $s$ while population stddev is
