@@ -1,0 +1,3275 @@
+/* THIS WORKS AS OF 06/06/2018 12:22PM
+	Theme Name: Accessible Genesis Framework
+	Description: WCAG 2.0 AA accessible child theme created for the Genesis Framework.
+	Author: Joe Rocha
+	Author URI: http://www.adroitgraphics.com/
+	Version: 1.0
+
+	Tags: accessibility-ready, accessible-ready, a11y, web standards, WCAG, Genesis, black, orange, white, one-column, two-columns, three-columns, fixed-width, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
+
+	Template: genesis
+	Template Version: 2.0.2
+
+	License: GPL-2.0+
+	License URI: http://www.opensource.org/licenses/gpl-license.php
+*/
+@import url("/wp-content/themes/genesis/style.css");
+
+/*remove Primary Sidebar Widget 08/20/2018*/
+.page-template-default .sidebar-primary {
+display: none;
+}
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::
+	knitr
+::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* knitr CSS needs to go first, because when it overlaps with IDRE CSS, we want to use IDRE CSS */
+
+.knitr.inline {
+  background-color: #f7f7f7 !important;
+  border:solid 1px #B0B0B0 !important;
+}
+.error {
+	font-weight: bold !important;
+	color: #FF0000 !important;
+}
+.warning {
+	font-weight: bold !important;
+} 
+.message {
+	font-style: italic !important;
+} 
+.source, .output, .warning, .error, .message {
+	padding: 0em 1em !important;
+  border:solid 1px #F7F7F7 !important;
+}
+.source {
+  background-color: #f7f7f7 !important;
+}
+.rimage.left {
+  text-align: left !important;
+}
+.rimage.right {
+  text-align: right !important;
+}
+.rimage.center {
+  text-align: center !important;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+
+.source {
+  color: #333333 !important;
+}
+.background {
+  color: #F7F7F7 !important;
+}
+
+.number {
+  color: #000000 !important;
+}
+
+.functioncall {
+  color: #800054 !important;
+  font-weight: bolder !important;
+}
+
+.string {
+  color: #9999FF !important;
+}
+
+.keyword {
+  font-weight: bolder !important;
+  color: black !important;
+}
+
+.argument {
+  color: #B04005 !important;
+}
+
+.comment {
+  color: #2E9957 !important;
+}
+
+.roxygencomment {
+  color: #707AB3 !important;
+}
+
+.formalargs {
+  color: #B04005 !important;
+}
+
+.eqformalargs {
+  color: #B04005 !important;
+}
+
+.assignement {
+  font-weight: bolder !important;
+  color: #000000 !important;
+}
+
+.package {
+  color: #96B525 !important;
+}
+
+.slot {
+  font-style: italic !important;
+}
+
+.symbol {
+  color: #000000 !important;
+}
+
+.prompt {
+  color: #333333 !important;
+}
+
+pre.r {
+  margin: 0 0 10px;
+  font-size: 80%;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::
+	FONTS
+::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+@font-face { 
+	font-family:'ProximaNovaLight'; src:url('/fonts/proximanova-light.eot'); src:url('/fonts/proximanova-light.eot?#iefix') format('embedded-opentype'),url('/fonts/proximanova-light.woff') format('woff'),url('/fonts/proximanova-light.ttf') format('truetype'); 
+	font-weight:lighter; 
+	font-style:normal; 
+}
+
+@font-face { 
+	font-family:'ProximaNova'; src:url('/fonts/proximanova-regular.eot'); src:url('/fonts/proximanova-regular.eot?#iefix') format('embedded-opentype'),url('/fonts/proximanova-regular.woff') format('woff'),url('/fonts/proximanova-regular.ttf') format('truetype'); 
+	font-weight:normal; 
+	font-style:normal; 
+}
+
+@font-face { 
+font-family:'ProximaNovaBold'; src:url('/fonts/proximanova-semibold.eot'); src:url('/fonts/proximanova-semibold.eot?#iefix') format('embedded-opentype'),url('/fonts/proximanova-semibold.woff') format('woff'),url('/fonts/proximanova-semibold.ttf') format('truetype'); 
+	font-weight:bold; 
+  font-style:normal; 
+}
+
+
+body, blockquote {
+/*14px/24px is font size and line height -- REQUIRED in font specification*/  	
+  font:  14px/24px 'ProximaNova', 'Arial', 'Verdana', sans-serif; 
+  /*text-rendering: geometricPrecision;*/
+  /*font-size: 1em;*/
+  /*line-height: 24px;  THESE STATEMENTS ARE REDUNDANT WITH 12px/24px*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+  	
+    font: 18px/24px 'ProximaNovaBold', 'Arial', 'Verdana', sans-serif; 
+	margin-top: 2rem;
+	margin-bottom: 1.5rem;
+
+}
+
+h2 {
+    font-size: 2.4rem;
+    font-weight: normal;
+    color: #005b89;
+    padding-top: 16px;
+ }
+    
+h3 {
+    font-size: 2.0rem;
+    color: #3284ad;
+}
+    
+h4 {
+    box-sizing: border-box;
+    color: rgb(3, 113, 171);
+    display: block;
+    font-family: ProximaNova, Arial, Verdana, sans-serif;
+    font-size: 1em;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 24px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    text-rendering: geometricprecision;
+    /*width: 840px;*/
+}
+/*try to change pre tag 2017-01-31*/
+  
+pre {
+   font: 14px/20px 'Courier New', 'Courier', monospace;
+   font-family: monospace;
+   font-size: 1em;
+   font-weight: normal;
+   font-style:normal;
+   line-height: 16px;
+   margin-top: 5px; 
+   margin-bottom: 5px;
+   margin-left: -20px; 
+   padding-top: 0.1cm;
+   padding-bottom: 0.1cm; 
+   padding-right: 0.1cm;
+   padding-left: 0.1cm;
+   page-break-after: avoid;
+   page-break-before: avoid; 
+}
+
+
+
+
+code {
+  color: #000000 !important;
+  background-color: transparent !important; 
+  font-size: inherit;
+}
+
+
+pre:not(.r) > code {
+  font-size: 80%;
+}
+
+section#text-12 {
+    /*float: right;*/
+    margin-right: 18px;
+}
+
+
+.social img {
+    height: 20px;
+    margin-left: 11px;
+}
+
+.social {
+    float: right;
+}
+
+
+.site-inner ul, .site-inner ol {
+	margin-bottom: 14px;
+}
+
+table {
+width: auto;
+margin-left:0;
+}
+
+#tribe-events-pg-template .tribe-events-content ol li, #tribe-events-pg-template .tribe-events-content ul li, .tribe-events-after-html ol li, .tribe-events-after-html ul li, .tribe-events-before-html ol li, .tribe-events-before-html ul li {
+  margin: 0px 15px !important;
+}
+
+.tribe-tickets-meta-row {
+ display: inline-block !important; 
+}
+
+ul, ol {
+    margin-bottom: 0px;
+}
+
+ul {
+	padding-left: 15px;
+}
+
+ol li {
+    list-style: initial;  
+    list-style-type: decimal;
+  	margin-left: 15px;
+} 
+
+
+li {
+	list-style-type: initial; 
+}
+
+
+
+ul.fix {
+    margin: 0 20px !important;
+  /*	padding-bottom: 10px;*/
+}
+
+ul.fix li {
+    margin: 0px !important;
+	list-style-type: disc;
+}
+
+td.tribe-ticket.quantity, span.tribe-events-divider {
+   display: none !important;
+}
+
+table.tribe-events-tickets.tribe-events-tickets-rsvp {
+    width: 100% !important;
+}
+
+.tribe-rsvp-message.tribe-rsvp-message-success {
+    font-size: 30px;
+    color: #000000;
+    font-weight: normal;
+    line-height: 33px;
+    border: 5px solid;
+    padding: 40px;
+    position: absolute;
+    margin-bottom: 14px;
+    background-color: white;
+    top: 10px;
+}
+
+.tribe-rsvp-message.tribe-rsvp-message-success::after {
+    content: "Please do not register again.";
+    color: red;
+}
+
+.content .entry {
+padding-top: 10px;
+}
+
+
+#footer-image {
+    background: url(https://idre.ucla.edu/wp-content/uploads/2014/12/OIT_logo1.png) no-repeat;
+    background-size: 81px 68px;
+    height: 68px;
+    width: 81px;
+    position: relative;
+    top: 95px;
+    left: -25px;
+    text-indent: -9999px;
+}
+
+
+
+p {
+color: #000;
+margin: 0 0 21px;
+}
+
+
+
+
+table tbody tr:nth-child(odd) {
+background-color: #efefef;
+}
+
+blockquote {
+color: #000000;
+font-size: 1em;
+}
+
+body {
+background-color: #ffffff;
+}
+
+
+iframe {
+border: 0px;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 6px 5px;
+}
+
+#bodyContainer th, #bodyContainer td {
+color: #000;
+font-size: 13px;
+font-weight: normal;
+padding: 4px 15px;
+border: 1px solid;
+text-align: left;
+}
+
+#bodyContainer input.footable-filter {
+display: none;
+}
+
+#ninja_forms_field_69_div_wrap {
+    display: none;
+}
+
+.tribe-events-list h2.tribe-events-page-title {
+margin-top: 35px;
+text-align: center;
+margin-bottom: initial;
+}
+
+.tribe-events-back {
+margin-bottom: 0;
+margin-top: 15px;
+}
+.entry-content ul.menu > li {
+list-style-type: none;
+}
+
+p.tc-excerpt {
+font-size: 12px;
+  line-height: 14px;
+}
+
+aside#genwpacc-sidebar-primary {
+font-size: 12px;
+  width: 210px;
+}
+
+.tribe-events-calendar td.tribe-events-present.mobile-active div[id*="tribe-events-daynum-"] a {
+background-color: #666;
+}
+
+.sidebar .widget {
+padding: 10px;
+}
+
+
+/*this is for the IDRE logo padding 05/09/2017 */
+.title-area{
+	/*
+  max-width: 100px; 
+  width: 100%;
+  margin-bottom: -25px; 
+  margin-top: -10px; 
+  margin-left: 10px;
+  margin-right: 0px;
+*/
+width: 116px !important;
+}
+
+
+/*changes width of the text 08/20/2018*/
+.content-sidebar .content {
+  width: 100%;}
+
+blockquote::before {
+content: initial;
+}
+
+
+.footer-widgets-1, .footer-widgets-2, .footer-widgets-3, .sidebar-primary, .title-area {
+width: 25%;
+}
+
+.entry-content ul {
+margin-bottom: 20px;
+margin-top: 20px;
+}
+
+.duration {
+position: relative;
+top: -5px;
+color: #fff;
+}  
+span.date-end.dtend {  
+overflow: hidden;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+text-overflow: ellipsis;
+}
+
+h2.tribe-events-list-event-title.entry-title.summary a:active {
+color: #ffffff;
+}
+
+
+.pagination-next.alignright {
+margin-right: 30px;
+}
+
+.pagination-previous.alignleft {
+margin-left: 30px;
+}
+
+footer.entry-footer {
+ display: none; 
+  /*padding-top: 20px;}*/}
+
+#cn-list span.fn {
+font-variant: initial;
+}
+
+header.entry-header a:hover {
+color: #006699;
+}
+
+span.cn-last-updated {
+display: none;
+}
+
+.entry-content a {
+text-decoration: underline;
+}
+
+
+.entry {
+margin-bottom: 0px;
+padding-bottom: 0px;
+padding-top: 0px;
+}
+
+span.entry-categories {
+display: none;
+}
+
+h1.entry-title {
+font-size: 2.5rem;
+font-weight: normal;
+color: #000;
+border-bottom: 1px solid #000;
+margin-top: 20px;
+margin-bottom: 16px;
+text-transform: uppercase;
+}
+
+h2.entry-title {
+  padding-top: 16px;
+}
+
+h2.entry-title a {
+font-size: 24px;
+font-weight: normal;
+color: rgb(48, 48, 48);
+
+}
+
+.entry-title a:hover {
+color: #006699;
+}
+
+h4.entry-title a:hover {
+color: #006699;
+}
+
+li.tribe-events-nav-previous {
+    display: none !important;
+}
+
+.tribe-events-list-widget .tribe-events-widget-link a {
+color: #fff;  
+text-decoration: underline;
+font-size: 0.65em;
+margin-left:10px; 
+}
+
+.tribe-events-calendar td.tribe-events-present.mobile-active div[id*="tribe-events-daynum-"], .tribe-events-calendar .mobile-active div[id*="tribe-events-daynum-"],.tribe-events-calendar .mobile-active div[id*="tribe-events-daynum-"] a
+{background-color: #666;}
+
+
+.colored {
+/* background-color: rgba(3, 139, 234, 0.46); */
+width: 100%;
+height:100%;}
+
+/*this is for the UCLA logo 05/9/2017 */ 
+.top-wrap {
+margin-top: 5px;
+margin-bottom: -10px; 
+margin-left: 25px;
+margin-right: 0px; 
+}
+
+/*h4.entry-title a*/
+h4.tribe-event-title a {
+	color: rgb(255, 238, 34);
+	font-size: 13.5px;
+  	display: -webkit-box;
+  	overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.entry-title {
+font-size: 14px;
+}
+
+h4.entry-title {
+background-color: initial;
+}
+
+/*h4.entry-title.summary*/
+h4.tribe-event-title{
+margin-bottom: 0px;
+line-height: 14px;
+width: auto;
+height: auto;
+}
+
+.tribe-events-list-widget .duration {
+font-weight: initial;
+}
+
+.tribe-events-list-widget ol li {
+margin-bottom: 10px;
+}
+
+/*this removes the numbered list 08-20-2018*/
+.widget ol > li {
+font-size: 14px !important;
+padding-left: 0px;
+text-indent: 0px;
+color: #fff;
+list-style: none;
+}
+
+.widget-title {
+font-size: 0.75em;
+margin-top: 10px; 
+margin-bottom: 10px;
+margin-left: 10px; 
+font-weight: normal;
+/*text-transform: uppercase;*/
+  opacity: 1;
+color: #ffffff;
+  background-color: initial;
+}
+
+/*events calendar*/
+section#tribe-events-list-widget-4 {
+    position: absolute;
+    left: 660px; 
+    top: 30px; 
+    height: 100%; 
+    max-height: 300px;
+    background-color: rgba(7, 75, 129, 0.86);
+    max-width: 375px;
+    width: 100%;
+    padding: 16px;
+    vertical-align: middle;
+}
+
+input {
+padding-bottom: 0px;
+padding-top: 0px;
+}
+
+#tribe-bar-views .tribe-bar-views-list {
+z-index: 1;
+}
+
+.tribe-events-back, .single-tribe_events h2.tribe-events-single-event-title, .tribe-events-schedule {
+margin-left: 15px;
+}
+
+.tribe-events-calendar thead th {
+background-color: #232323;
+}
+
+.tribe-events-button, #tribe-events .tribe-events-button,  #tribe-events-footer .tribe-events-sub-nav .tribe-events-nav-next {
+margin-top: 0px;
+margin-right: 15px;
+}
+
+#tribe-events-header .tribe-events-sub-nav li, #tribe-events-footer .tribe-events-sub-nav .tribe-events-nav-previous {
+margin-left: 15px;
+margin-right: 15px;
+}
+
+
+.genesis-nav-menu {
+padding: 0px 0px; 
+}
+
+.sidebar-primary {
+width: 0%;
+}
+
+.feat-wrap h4 a {
+font-size: 20px;
+}
+
+/*border-top creates a white line*/
+.entry-footer .entry-meta {
+/*border-top: 0px solid #5C5B5B;*/
+  border-top: none;
+}
+
+.footer-logo img:hover {
+opacity: initial;
+}
+
+.wrapped {
+    max-width: 957px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    width: auto;
+    height: auto;
+    display: -webkit-flex;
+    -webkit-flex: 1;
+	flex: 1;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    -webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+.footer-links a {
+color: lightgrey;
+}
+
+.footer-links li {
+display: inline;
+margin: 0 15px;
+/*  float: right;*/
+}
+
+.ftr-btm {
+    height: auto;
+    background-color: #006699;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    padding: 3px 0px;
+    margin-top: 25px;
+    line-height: normal;
+}
+
+.ftr-btm p {
+font-size: 11px;
+margin: 0;
+  float: left;
+padding-left: 85px;
+}
+
+.ftr-btm a {
+color: #fff;
+text-decoration: none;
+}
+
+.ftr-btm a:hover {
+color: yellow;
+}
+
+.footer-icon-wrap {
+ width: auto;
+display: flex;
+display: -webkit-flex;
+display: -moz-flex;
+display: -ms-flexbox;
+-webkit-flex: 1; /* Safari 6.1+ */
+-moz-flex: 1;
+flex: 1;
+ -webkit-align-items: center;
+align-items: center;
+-webkit-justify-content: center;
+-webkit-align-content: center;
+align-content: center;
+justify-content: space-around;
+flex-flow: row wrap;
+-webkit-flex-flow: row wrap;
+}
+
+.footer-logo {
+float: left;
+width: 90px;
+height: 110px;
+margin-left: auto;
+margin-right: auto;
+padding: 0 20px;
+}
+
+.footer-logo img {
+float: left;
+opacity: 0.8;
+}
+
+.footer-logo p {
+word-wrap: normal;
+font-size: 10px;
+line-height: 11px;
+text-align: center;
+width: 80px;
+}
+
+.genesis-nav-menu .menu-item {
+	margin-right: 35px;
+}
+
+
+.footer-widgets-2 {
+width: auto;
+}
+
+.wrap .footer-widgets-1.widget-area {
+width: 100%;
+}
+
+.footer-widgets-1 {
+margin-right: 0px;
+}
+
+.footer-widgets .widget {
+margin-bottom: 0px;
+  width: 100%
+}
+
+
+.feat-wrap hr {
+display: none;
+}
+
+.hr-sml {
+display: none;
+}
+
+#calendar-content p {
+overflow: hidden;
+text-overflow: ellipsis;
+height: 35px;
+}
+
+.archive-description {
+display: none;
+}
+
+.read-more {
+text-align: center;
+font-size: 1.4rem;
+font-weight: normal;
+color: #0f589b;
+margin-bottom: 20px;
+}
+
+.read-more img {
+position: relative;
+top: 2px;
+left: 4px;
+}
+
+/*border-top creates a line*/
+#genwpacc-genesis-footer-widgets {
+  margin-top: 50px;
+  background-color: #333333;
+  color: #fff;
+ /* border-top: 0px solid;*/
+  border-top: none;
+  border-color: #006699;
+  padding: 15px 30px;
+  height: auto;
+}
+
+.site-footer a {
+color: #fff;
+}
+
+
+/*border-top creates a white line*/
+#wrap hr {
+width: 90%;
+border: 0;
+/*border-top: 0px solid #006699;*/
+border-top: none;
+position: relative;
+top: 20px;
+clear: both;
+}
+
+
+/*this is for the IDRE logo on the top left 05/09/2017*/
+/*works with IE */
+
+/* for mobile devices */
+@media screen and (max-width: 896px) {
+	
+	.header-image .site-title > a {
+		width: 100% !important;
+		background: url(https://stats.idre.ucla.edu/wp-content/themes/genesis-child/images/logo.png) no-repeat;
+		background-position: center !important;
+	}
+
+	.title-area {
+		width: 100% !important;
+	}
+
+}
+
+
+.genesis-nav-menu li > a:after {
+ content: url(/wp-content/themes/genesis-child/images/arrow-right.png); 
+float: right;
+}
+
+.genesis-nav-menu > li > a:after {
+content: url(/wp-content/themes/genesis-child/images/arrow_dwn.png);
+margin-left: 5px;
+float: none;
+}
+
+.genesis-nav-menu li > a:only-child:after {
+content: '';
+}
+
+#right-column {
+width: 50%;
+height: 360px;
+float: left;
+}
+
+#left-column {
+width: 50%;
+height: 360px;
+float: left;
+}
+
+.header-image .site-title > a {
+    width: 130px;
+	background: url(https://stats.idre.ucla.edu/wp-content/themes/genesis-child/images/logo.png) no-repeat;
+}
+
+.site-header {
+height: auto;
+  min-height: initial;
+}
+
+.site-header .wrap
+{ padding: 4px 10px;
+}
+
+#calendar-content {
+background-color: #ffffff;
+width: 365px;
+float: left;
+margin-top: 5px;
+margin-left: 5px;
+padding: 13px 8px;
+height: 58px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+#calendar-content a {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+#calendar-date {
+height: 58px;
+width: 60px;
+background-color: #ffffff;
+text-align: center;
+margin-top: 5px;
+font-weight: normal;
+line-height: 1.2;
+padding: 7px;
+float: left;
+font-size: 1.1rem;
+}
+
+
+#home-featured {
+	position: relative;
+}
+
+
+/*main UCLA image*/
+#top-banner {
+background-image: url(/wp-content/themes/genesis-child/images/top-banner2.jpg);
+width: 958px;
+height: 360px;
+max-height: 100%;
+max-width: 100%; 
+background-repeat: no-repeat;
+-webkit-background-size: cover;     /* For WebKit*/
+-moz-background-size: cover;    /* Mozilla*/
+-o-background-size: cover;      /* Opera*/
+background-size: cover;         /* Generic*/
+}
+
+section#text-3 {
+max-width: 958px;
+width: auto; 
+height: auto;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px; 
+}
+
+/*statistical computing banner*/
+#banner-header-2 {
+font-size: 0.8em;
+color: #FFFFFF;
+padding: 10px 15px 10px 10px;
+float: left;
+left: 50px;
+right: 10px; 
+max-width: 250px;
+width: 100%; 
+background-color: rgba(7, 75, 129, 0.86);
+position: relative;
+top: 83px;
+line-height: 28px;
+text-align: center;
+
+}
+
+
+a {
+color: #006699;
+}
+
+.breadcrumb {
+padding: 0px 60px;
+padding-top: 16px;
+margin: 0;
+}
+
+/*the blue horizontal bar*/
+.nav-primary {
+background-color: #006699;
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+/*the actual words in the submenu*/
+.nav-primary .genesis-nav-menu .sub-menu a {
+color: #006699;
+text-decoration: none !important;
+padding-top: 5;
+}
+
+/*changes width of the page 08/20/2018 */
+
+#home-featured {
+    position: relative;
+    margin: -20px;
+    margin-left: -150px;
+}
+
+.widget {
+    border: none;
+}
+
+.entry {
+ padding: 20px; 
+}
+
+.site-inner, .wrap {
+max-width: 75%;
+}
+
+.site-inner {
+border: none;
+border-top: none;
+max-width: 75%;
+padding-top: 0;  
+}
+
+/*remove footer image */ 
+#footer-image {
+	display: none;
+}
+
+section#search-5.widget.widget_search {
+position: relative;
+}
+
+.search-form input[type="search"] {
+    width: 190px;
+    color: #000000;
+    margin-top: 35px;
+    padding: 5px;
+}
+
+.ucla-logo {
+	position: relative;
+	top: 5px;
+}
+
+
+.widget {
+	float: left;
+}
+
+.site-header .search-form {
+  	overflow: visible;
+  	margin: auto;
+}
+
+.top-txt {
+    font-size: 20px;
+    font-family: ProximaNova;
+	text-align: center;
+}
+
+.site-header .widget-area {
+	text-align: left;
+  	float: left;
+}
+
+.site-container {
+	background-color: #ffffff;
+}
+
+/*this changes the white submenu */
+.genesis-nav-menu .sub-menu a {
+	/*box-shadow: 1px 1px 1px #888888;*/
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important; 
+    padding: 10px 10px;
+    text-decoration: none !important;
+}
+
+/*this changes the main menu not the submenu*/
+/*first px is horizontal second px is vertical*/
+.genesis-nav-menu a {
+	padding: 10px 20px;
+  	font-size: 14px;
+  	text-rendering: optimizeLegibility;
+  	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  	font-weight: 600;
+    /*-webkit-box-shadow: none !important;*/
+    /*box-shadow: none !important; */
+}
+
+
+#idre-logo
+{ 
+ width: 136px;
+ float: left;
+ margin-top: 32px;
+ margin-right: 10px;
+ margin-left: 20px;
+}
+
+.site-title a, .site-title a:hover {
+font-size: 1.4rem;
+float: left;
+}
+
+.slicknav_menu {
+	display:none;
+}
+
+.nav-primary a {
+	color: white;
+}
+
+/*the colors of the words on the blue bar, default is red*/
+/*text-decoration is the underline*/
+.nav-primary .genesis-nav-menu a:hover, .nav-primary .genesis-nav-menu a:focus, .nav-primary .genesis-nav-menu .current-menu-item > a {
+color: #ffffff;
+background-color: #006699;
+box-shadow: none !important;
+text-decoration: none !important;
+
+}
+/*End of Media Query*/
+
+
+  /*for mobile screens*/
+@media screen and (max-width: 896px) {
+ 
+#footer-image {
+	display: none;
+}
+
+/*events calendar mobile*/ 
+  section#tribe-events-list-widget-4 {
+    position: relative !important;
+    top: 5px !important;
+    width: 100% !important;
+  }
+ 
+/*events calendar title mobile*/
+      .widget-title {
+    font-size: 0.8em;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    margin-left: 10px; 
+    margin-right: 10px; 
+    font-weight: normal;
+    /*text-transform: uppercase;*/
+      opacity: 1;
+    color: #ffffff;
+      background-color: initial;
+    }
+  
+/*events calendar view events mobile */
+    .tribe-events-list-widget .tribe-events-widget-link a {
+    color: #fff;  
+    text-decoration: underline;
+    font-size: 0.8em;
+    margin-left:10px; 
+    }
+
+  /*footer mobile*/
+  
+.ftr-btm {
+    height: auto;
+    background-color: #006699;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    padding: 7px 0px;
+    margin-top: 60px;
+    line-height: normal;
+}
+/*main UCLA image mobile*/
+  #top-banner {
+background-image: url(/wp-content/themes/genesis-child/images/top-banner2.jpg);
+max-width: 1000px;
+max-height: 180px;
+position: relative;
+margin-left: -80px;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom:-20px;
+padding: 5px;
+}
+	
+	section#text-3 {
+max-width: 300px;
+width: 100%; 
+max-height: 280px; 
+height: 100%; 
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px; 
+}
+  
+  #left-column {
+  max-width: 100%;
+  height: 205px;
+  float: left;
+  margin-left: -30px;
+  margin-bottom: 0px;
+}
+
+/*calendar mobile */ 
+
+section#tribe-events-list-widget-4 {
+    position: relative;
+    right: auto;
+    top: 65px;
+    height: auto;
+    background-color: rgba(7, 75, 129, 0.86);
+    max-width: 300%;
+    width: 250px;
+    padding: 0px;
+    vertical-align: middle;
+    left: -5px;
+}
+  
+/*statistical computing banner mobile*/
+#banner-header-2 {
+font-size: 24px;
+width: auto;
+width: 150%;
+text-align: left;
+left: 85px;
+top: 5px;
+}
+
+  /*transparent bar*/
+.colored {
+    background-color: rgba(3, 139, 234, 0.46);
+    width: 100%;
+    height: 0px;
+    margin: 20px;
+    margin-bottom: 0px;
+}
+  
+  /*adjust body text*/
+
+blockquote {
+font-size: 1em;
+padding: 0px; 
+margin: 0px; 
+
+}
+  
+#bodyContainer th, #bodyContainer td {
+font-size: 1em;
+padding: 0px 0px;
+}
+
+    /* Chrome fix: this is the big one! */
+body > div {
+   font-size: 16px !important;
+   line-height: 18px; 
+}
+
+/*ajdust h2,h3,h4*/
+
+h2 {
+font-size: 1.7rem;
+margin-bottom: 0px;
+padding-top: 0px;
+}
+
+h3 {
+font-size: 1.5rem;
+margin-bottom: 0px;
+padding-top: 0px;
+}
+  
+.entry {
+padding: 0px;
+}
+
+.content .entry {
+padding: 0px;
+border: none;
+}
+
+  .entry-content ul {
+margin-bottom: 0px;
+margin-top: 0px;
+margin: 0px; 
+}
+  
+  
+
+
+  /*change title*/
+  
+  h1.entry-title {
+font-size: 1.7rem;
+border-bottom: 0.5px solid #000;
+line-height:18px;
+margin-top: 0px;
+margin-bottom: 5px;
+margin-left: 0px; 
+margin-right: 0px;
+}
+
+  /*changes search title*/ 
+h2.entry-title {
+  padding-top: 0px;
+}
+
+h2.entry-title a {
+font-size: 1.7em;
+line-height: 18px; 
+}
+  /*change line height */
+  
+  h1, h2, h3, h4, h5, h6 {
+  padding-bottom: 5px; 
+  line-height: 18px; 
+}
+
+
+  /*change table*/
+  
+  table {
+line-height: 16px; 
+}
+  
+  /*affects UCLA logo*/
+  
+  img {
+    padding: 10px;
+  }
+  
+  /*display Joe's slick nav*/
+  	.genesis-nav-menu {
+		display:none;
+	}
+	
+	.slicknav_menu {
+		display:block;
+		background: #006699 !important;
+	}
+  
+  /*search form */
+  .search-form input[type="search"] {
+  max-width: 300px;
+  max-height: 150px;
+  width: 250%;
+  height: 150%;
+  vertical-align: right;
+  color: #000000;
+  margin-top: 5px;
+  padding: 5px;
+  margin-right: 0px;
+  margin-left: 3px;
+}
+/*remove ucla logo*/  
+  .ucla-logo {
+    display: none;
+	position: relative;
+	top: 0px;
+}
+
+  /*remove footer image*/
+  
+#footer-image {
+	display: none;
+	background: url(https://idre.ucla.edu/wp-content/uploads/2014/12/OIT_logo1.png) no-repeat;
+    background-size: 81px 68px;
+    height: 68px;
+    width: 81px;
+    position: relative;
+    top: 95px;
+    left: -25px;
+    text-indent: -9999px;
+}
+
+  
+} 
+
+/*end @media screen*/
+
+ /*for mobile screens 08/21/2018 */
+@media screen and (max-width: 500px) {
+ 
+section#tribe-events-list-widget-4 {
+    position: absolute;
+	max-width: 280px;
+	left: 150px; 
+}
+
+.ftr-btm{
+padding: 0; 
+margin-top: 40px; 
+}
+
+ .site-inner, .wrap {
+max-width: 100%;
+}
+
+.site-inner {
+border: none;
+border-top: none;
+max-width: 100%;
+padding-top: 0;  
+}
+	/*events calendar mobile*/ 
+	#top-banner {
+		display:none;
+	}
+	
+	#banner-header-2 {
+		font-size: 24px;
+		width: auto;
+		width: 200%;
+		text-align: left;
+		left: 45px;
+		top: 5px;
+	}
+  
+}
+
+/*Joe's Slick Nav */
+
+.slicknav_btn{position:relative;display:block;float:right;padding:0.438em 0.625em 0.438em 0.625em;line-height:1.125em;cursor:pointer;}.slicknav_menu .slicknav_menutxt{display:block;line-height:1.188em;float:left;}.slicknav_menu .slicknav_icon{float:left;margin:0.188em 0 0 0.438em;}.slicknav_menu .slicknav_no-text{margin:0}.slicknav_menu .slicknav_icon-bar{display:block;width:1.125em;height:0.125em;-webkit-border-radius:1px;-moz-border-radius:1px;border-radius:1px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,0.25);-moz-box-shadow:0 1px 0 rgba(0,0,0,0.25);box-shadow:0 1px 0 rgba(0,0,0,0.25);}.slicknav_btn .slicknav_icon-bar+.slicknav_icon-bar{margin-top:0.188em}.slicknav_nav{clear:both}.slicknav_nav ul,.slicknav_nav li{display:block}.slicknav_nav .slicknav_arrow{font-size:0.8em;margin:0 0 0 0.4em;}.slicknav_nav .slicknav_item{display:block;cursor:pointer;}.slicknav_nav a{display:block}.slicknav_nav .slicknav_item a{display:inline}.slicknav_menu:before,.slicknav_menu:after{content:" ";display:table;}.slicknav_menu:after{clear:both}.slicknav_menu{*zoom:1}.slicknav_menu{font-size:16px;}.slicknav_btn{margin:5px 5px 6px;text-decoration:none;text-shadow:0 1px 1px rgba(255,255,255,0.75);-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;background-color:#02324A;}.slicknav_menu .slicknav_menutxt{color:#FFF;font-weight:bold;text-shadow:0 1px 3px #000;}.slicknav_menu .slicknav_icon-bar{background-color:#f5f5f5;}.slicknav_menu{background:#006699;padding:5px;}.slicknav_nav{color:#fff;margin:0;padding:0;font-size:0.875em;}.slicknav_nav,.slicknav_nav ul{list-style:none;overflow:hidden;}.slicknav_nav ul{padding:0;margin:0 0 0 20px;}.slicknav_nav .slicknav_item{padding:5px 10px;margin:2px 5px;}.slicknav_nav a{padding:5px 10px;margin:2px 5px;text-decoration:none;color:#fff;}.slicknav_nav .slicknav_item a{padding:0;margin:0;}.slicknav_nav .slicknav_item:hover{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;background:#000 !important;color:#fff;}.slicknav_nav a:hover{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;background:#fff;color:#222;}.slicknav_nav .slicknav_txtnode{margin-left:15px;}
+
+
+
+
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::
+	SAS 
+::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+div.sas table table {
+    margin-bottom: 0px;
+  }
+  div.sas code {
+    color: #485B72;
+    font-weight: bold;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+  }
+
+  div.sas table
+  {
+    border-bottom-width: 0px;
+    border-collapse: collapse;
+    border-color: #C1C1C1;
+    border-left-width: 1px;
+    border-right-width: 0px;
+    border-spacing: 0px;
+    border-style: solid;
+    border-top-width: 1px;
+  }
+/* this section prevents the double shrinking of text */
+div.sas td td.data,
+div.sas th th.rowheader,
+div.sas th td.data {
+  font-size: 100%;
+}
+div.sas .centerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height:50%;
+}
+  div.sas .aftercaption
+  {
+    background-color: #FAFBFE;
+    border-spacing: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+  }
+  div.sas .batch
+  {
+    background-color: #FAFBFE;
+    border: 1px solid #C1C1C1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+  }
+  div.sas .beforecaption
+  {
+    background-color: #FAFBFE;
+    border-spacing: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .body
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  div.sas .bodydate
+  {
+    background-color: #FAFBFE;
+    border-spacing: 0px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+  }
+  div.sas .bycontentfolder
+  {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+  }
+  div.sas .byline
+  {
+    background-color: #FAFBFE;
+    border-spacing: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .bylinecontainer
+  {
+    background-color: #FAFBFE;
+    border: 0px solid #000000;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+  }
+  div.sas .caption
+  {
+    background-color: #FAFBFE;
+    border-spacing: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .cell
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .container
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .contentfolder
+  {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+  }
+  div.sas .contentitem
+  {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+  }
+  div.sas .contentproclabel
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .contentprocname
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .contents
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  div.sas .contentsdate
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+  }
+  div.sas .contenttitle
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: bold;
+  }
+  div.sas .continued
+  {
+    background-color: #FAFBFE;
+    border-spacing: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+  }
+  div.sas .data
+  {
+    background-color: #FFFFFF;
+    border-bottom-width: 1px;
+    border-color: #C1C1C1;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .dataemphasis
+  {
+    background-color: #FFFFFF;
+    border-bottom-width: 1px;
+    border-color: #C1C1C1;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .dataemphasisfixed
+  {
+    background-color: #FFFFFF;
+    border-bottom-width: 1px;
+    border-color: #C1C1C1;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .dataempty
+  {
+    background-color: #FFFFFF;
+    border-bottom-width: 1px;
+    border-color: #C1C1C1;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .datafixed
+  {
+    background-color: #FFFFFF;
+    border-bottom-width: 1px;
+    border-color: #C1C1C1;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .datastrong
+  {
+    background-color: #FFFFFF;
+    border-bottom-width: 1px;
+    border-color: #C1C1C1;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .datastrongfixed
+  {
+    background-color: #FFFFFF;
+    border-bottom-width: 1px;
+    border-color: #C1C1C1;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .date
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+  }
+  div.sas .document
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas a:link {
+  color:#0000FF
+  }
+  div.sas a:visited {
+  color:#800080
+  }
+  div.sas a:active {
+  color:#800080
+  }
+  div.sas .errorbanner
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .errorcontent
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .errorcontentfixed
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .extendedpage
+  {
+    background-color: #FAFBFE;
+    border: 1pt solid #000000;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+  }
+  div.sas .fatalbanner
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .fatalcontent
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .fatalcontentfixed
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .folderaction
+  {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+  }
+  div.sas .footer
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .footeremphasis
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .footeremphasisfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .footerempty
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .footerfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .footerstrong
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .footerstrongfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .frame
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .graph
+  {
+    background-color: #FAFBFE;
+    border: 1px solid #C1C1C1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .header
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .headeremphasis
+  {
+    background-color: #D8DBD3;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .headeremphasisfixed
+  {
+    background-color: #D8DBD3;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .headerempty
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .headerfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .headersandfooters
+  {
+    background-color: #EDF2F9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .headerstrong
+  {
+    background-color: #D8DBD3;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .headerstrongfixed
+  {
+    background-color: #D8DBD3;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .index
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .indexaction
+  {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+  }
+  div.sas .indexitem
+  {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+  }
+  div.sas .indexprocname
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .indextitle
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: bold;
+  }
+  div.sas .layoutcontainer
+  {
+    border: 0px solid #000000;
+    border-spacing: 30px;
+  }
+  div.sas .layoutregion
+  {
+    border: 0px solid #000000;
+    border-spacing: 30px;
+  }
+  div.sas .linecontent
+  {
+    background-color: #FAFBFE;
+    border-bottom-width: 1px;
+    border-color: #C1C1C1;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .list
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+  }
+  div.sas .list10
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .list2
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+  }
+  div.sas .list3
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .list4
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .list5
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .list6
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .list7
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .list8
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .list9
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .listitem
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+  }
+  div.sas .listitem10
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .listitem2
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+  }
+  div.sas .listitem3
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .listitem4
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .listitem5
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .listitem6
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .listitem7
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .listitem8
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .listitem9
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+  }
+  div.sas .note
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .notebanner
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .notecontent
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .notecontentfixed
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .output
+  {
+    background-color: #FAFBFE;
+    border: 1px solid #C1C1C1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .pageno
+  {
+    background-color: #FAFBFE;
+    border-spacing: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+  }
+  div.sas .pages
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  div.sas .pagesdate
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+  }
+  div.sas .pagesitem
+  {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+  }
+  div.sas .pagesproclabel
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .pagesprocname
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .pagestitle
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: bold;
+  }
+  div.sas .paragraph
+  {
+    background-color: #FAFBFE;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .parskip
+  {
+    border: 0px solid #000000;
+    border-spacing: 0px;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .prepage
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+  }
+  div.sas .proctitle
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .proctitlefixed
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .rowfooter
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .rowfooteremphasis
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .rowfooteremphasisfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .rowfooterempty
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .rowfooterfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .rowfooterstrong
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .rowfooterstrongfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .rowheader
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .rowheaderemphasis
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .rowheaderemphasisfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  div.sas .rowheaderempty
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .rowheaderfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .rowheaderstrong
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .rowheaderstrongfixed
+  {
+    background-color: #EDF2F9;
+    border-bottom-width: 1px;
+    border-color: #B0B7BB;
+    border-left-width: 0px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemfooter
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter10
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter2
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter3
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter4
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter5
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter6
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter7
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter8
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemfooter9
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .systemtitle
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle10
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle2
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle3
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle4
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle5
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle6
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle7
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle8
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systemtitle9
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .systitleandfootercontainer
+  {
+    background-color: #FAFBFE;
+    border: 0px solid #000000;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+  }
+  div.sas .top_stacked_value
+  {
+    padding-bottom: 1px;
+    border: 0;
+  }
+  div.sas .middle_stacked_value
+  {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 0;
+  }
+  div.sas .bottom_stacked_value
+  {
+    padding-top: 1px;
+    border: 0;
+  }
+  div.sas .titleandnotecontainer
+  {
+    background-color: #FAFBFE;
+    border: 0px solid #000000;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+  }
+  div.sas .titlesandfooters
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .usertext
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .warnbanner
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: bold;
+  }
+  div.sas .warncontent
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .warncontentfixed
+  {
+    background-color: #FAFBFE;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: 75%;
+    font-style: normal;
+    font-weight: normal;
+  }
+  div.sas .l {text-align: left }
+  div.sas .c {text-align: center }
+  div.sas .r {text-align: right }
+  div.sas .d {text-align: right }
+  div.sas .j {text-align: justify }
+  div.sas .t {vertical-align: top }
+  div.sas .m {vertical-align: middle }
+  div.sas .b {vertical-align: bottom }
+  div.sas TD, TH {vertical-align: top; }
+  div.sas .stacked_cell{padding: 0 }
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::
+	SPSS
+::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* TO USE: surround all pages contents with <div class="spss"></div> */
+
+div.spss .details{position: absolute;left: -9999px;}
+div.spss .IELargeImage{display:inline-block;font-family: Arial, Helvetica, sans-serif;font-size: medium;color:#ff0000;font-weight:normal;vertical-align:middle;}
+div.spss *{
+border-collapse:collapse;
+}
+div.spss td {
+border-style: none;
+padding: inherit;
+}
+div.spss table tbody tr:nth-child(odd) {
+  background-color: transparent;
+}
+div.spss tbody {
+border-bottom-style: none;
+}
+div.spss table .defaultLayer  {
+margin-bottom: 0px;
+}
+div.spss .Default .title  {
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+div.spss .Default .layers  {
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+div.spss .Default .cornerLabels  {
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+div.spss .Default .columnLabels {
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+div.spss .Default .rowLabels  {
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+div.spss .Default .o, .Default .e  {
+background-color:#ffffff;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+div.spss .Default .o  {
+background-color:null;
+color:null;
+}
+div.spss .Default .e  {
+background-color:#ffffff;
+color:#010205;
+}
+div.spss .Default .caption  {
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+div.spss .Default .footnotes  {
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+div.spss .Default .titleLayerSeparator  {
+border-top:1px none #152935;
+}
+div.spss .Default .innerFrameBd {
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+div.spss .Default .dataAreaLeft  {
+border-left:1px none #152935;
+}
+div.spss .Default .dataAreaTop  {
+border-top:1px solid #152935;
+}
+div.spss .Default .hCR {
+border-top:1px solid #aeaeae;
+}
+div.spss .Default .hDR {
+border-top:1px none #aeaeae;
+}
+div.spss .Default .vCR {
+border-left:1px none #aeaeae;
+}
+div.spss .Default .vDR {
+border-left:1px none #aeaeae;
+}
+div.spss .Default .hCC {
+border-bottom:1px none #aeaeae;
+}
+div.spss .Default .hDC {
+border-bottom:1px none #aeaeae;
+}
+div.spss .Default .vCC {
+border-right:1px solid #e0e0e0;
+}
+div.spss .Default .vDC {
+border-right:1px none #aeaeae;
+}
+

@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+		<meta name="robots" content="noodp,noydir">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>What statistical analysis should I use? Statistical analyses using R</title>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+<link rel="dns-prefetch" href="https://platform-api.sharethis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="IDRE Stats » Feed" href="https://stats.idre.ucla.edu/feed/">
+<link rel="alternate" type="application/rss+xml" title="IDRE Stats » Comments Feed" href="https://stats.idre.ucla.edu/comments/feed/">
+<link rel="alternate" type="text/calendar" title="IDRE Stats » iCal Feed" href="https://stats.idre.ucla.edu/calendar/?ical=1">
+<link rel="canonical" href="https://stats.idre.ucla.edu/r/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-r/">
+		<script type="text/javascript" async="" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/recaptcha__en.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/stats.idre.ucla.edu\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="tribe-accessibility-css-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/accessibility.css" type="text/css" media="all">
+<link rel="stylesheet" id="tribe-events-full-calendar-style-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/tribe-events-full.css" type="text/css" media="all">
+<link rel="stylesheet" id="tribe-events-custom-jquery-styles-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/jquery-ui-1.css" type="text/css" media="all">
+<link rel="stylesheet" id="tribe-events-bootstrap-datepicker-css-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/bootstrap-datepicker.css" type="text/css" media="all">
+<link rel="stylesheet" id="tribe-events-calendar-style-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/tribe-events-full.css" type="text/css" media="all">
+<link rel="stylesheet" id="tribe-events-calendar-full-mobile-style-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/tribe-events-full-mobile.css" type="text/css" media="only screen and (max-width: 768px)">
+<link rel="stylesheet" id="joe-responsive-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="collapseomatic-css-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/light_style.css" type="text/css" media="all">
+<link rel="stylesheet" id="genwpacc-srt-css-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/genwpacc-skiplinks.css" type="text/css" media="all">
+<link rel="stylesheet" id="slicknavcss-css" href="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/slicknav.css" type="text/css" media="all">
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/jquery.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/jquery-migrate.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/php-date-formatter.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/moment.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tribe_dynamic_help_text = {"date_with_year":"F j, Y","date_no_year":"F j","datepicker_format":"Y-m-d","datepicker_format_index":"0","days":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"daysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"msgs":"[\"This event is from %%starttime%% to %%endtime%% on %%startdatewithyear%%.\",\"This event is at %%starttime%% on %%startdatewithyear%%.\",\"This event is all day on %%startdatewithyear%%.\",\"This event starts at %%starttime%% on %%startdatenoyear%% and ends at %%endtime%% on %%enddatewithyear%%\",\"This event starts at %%starttime%% on %%startdatenoyear%% and ends on %%enddatewithyear%%\",\"This event is all day starting on %%startdatenoyear%% and ending on %%enddatewithyear%%.\"]"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/events-dynamic.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/jquery_004.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/jquery_003.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tribe_js_config = {"permalink_settings":"\/%postname%\/","events_post_type":"tribe_events","events_base":"https:\/\/stats.idre.ucla.edu\/calendar\/","debug":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/tribe-events.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/tribe-events-bar.js"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://stats.idre.ucla.edu/wp-content/themes/genesis/lib/js/html5shiv.min.js?ver=3.7.3'></script>
+<![endif]-->
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/jquery_002.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/sharethis.js"></script>
+<link rel="https://api.w.org/" href="https://stats.idre.ucla.edu/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://stats.idre.ucla.edu/xmlrpc.php?rsd">
+<link rel="alternate" type="application/json+oembed" href="https://stats.idre.ucla.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fstats.idre.ucla.edu%2Fr%2Fwhatstat%2Fwhat-statistical-analysis-should-i-usestatistical-analyses-using-r%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://stats.idre.ucla.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fstats.idre.ucla.edu%2Fr%2Fwhatstat%2Fwhat-statistical-analysis-should-i-usestatistical-analyses-using-r%2F&amp;format=xml">
+<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://stats.idre.ucla.edu"><link rel="https://theeventscalendar.com/" href="https://stats.idre.ucla.edu/wp-json/tribe/events/v1/"><link rel="icon" href="https://stats.idre.ucla.edu/wp-content/themes/genesis-child/images/favicon.ico">
+<link rel="pingback" href="https://stats.idre.ucla.edu/xmlrpc.php">
+
+<link rel="icon" href="https://stats.idre.ucla.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://stats.idre.ucla.edu/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body class="page-template-default page page-id-1184 page-child parent-pageid-1183 tribe-js header-image content-sidebar" itemscope="" itemtype="https://schema.org/WebPage"><div class="slicknav_menu"><a href="#" aria-haspopup="true" tabindex="0" class="slicknav_btn" style="outline: medium none currentcolor;"><span class="slicknav_menutxt">MENU</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" style="display: none;" aria-hidden="true" role="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22640"><a href="https://stats.idre.ucla.edu/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">HOME</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22662 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item" style="outline: medium none currentcolor;"><a href="#" itemprop="url"><span itemprop="name">SOFTWARE</span></a>
+<span class="slicknav_arrow"> ►</span></a><ul class="sub-menu slicknav_hidden" role="menu" style="display: none;" aria-hidden="true">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22646"><a href="https://stats.idre.ucla.edu/r/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">R</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22649"><a href="https://stats.idre.ucla.edu/stata/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Stata</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22647"><a href="https://stats.idre.ucla.edu/sas/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">SAS</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22648"><a href="https://stats.idre.ucla.edu/spss/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">SPSS</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22659"><a href="https://stats.idre.ucla.edu/mplus/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Mplus</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22657 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item" style="outline: medium none currentcolor;"><a href="https://stats.idre.ucla.edu/other/" itemprop="url"><span itemprop="name">Other Packages</span></a>
+	<span class="slicknav_arrow"> ►</span></a><ul class="sub-menu slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22658"><a href="https://stats.idre.ucla.edu/other/gpower/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">G*Power</span></a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22684"><a href="https://stats.idre.ucla.edu/other/sudaan/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">SUDAAN</span></a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22696"><a href="https://stats.idre.ucla.edu/spss/spss-user/sample-power/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Sample Power</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22661 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item" style="outline: medium none currentcolor;"><a href="https://stats.idre.ucla.edu/" itemprop="url"><span itemprop="name">RESOURCES</span></a>
+<span class="slicknav_arrow"> ►</span></a><ul class="sub-menu slicknav_hidden" role="menu" style="display: none;" aria-hidden="true">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22656"><a href="https://stats.idre.ucla.edu/annotatedoutput" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Annotated Output</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22651"><a href="https://stats.idre.ucla.edu/other/dae/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Data Analysis Examples</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22654"><a href="https://stats.idre.ucla.edu/other/mult-pkg/faq/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Frequently Asked Questions</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22652"><a href="https://stats.idre.ucla.edu/other/mult-pkg/seminars/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Seminars</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22653"><a href="https://stats.idre.ucla.edu/other/examples/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Textbook Examples</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22692"><a href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Which Statistical Test?</span></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22663 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item" style="outline: medium none currentcolor;"><a href="https://stats.idre.ucla.edu/" itemprop="url"><span itemprop="name">SERVICES</span></a>
+<span class="slicknav_arrow"> ►</span></a><ul class="sub-menu slicknav_hidden" role="menu" style="display: none;" aria-hidden="true">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22660"><a href="https://stats.idre.ucla.edu/books/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Books for Loan</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22655 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item" style="outline: medium none currentcolor;"><a href="https://stats.idre.ucla.edu/ucla/policies" itemprop="url"><span itemprop="name">Services and Policies</span></a>
+	<span class="slicknav_arrow"> ►</span></a><ul class="sub-menu slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22885"><a href="https://stats.idre.ucla.edu/ucla/policies/#WalkIn" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Walk-In Consulting</span></a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22882"><a href="https://stats.idre.ucla.edu/ucla/policies/#EmailConsult" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Email Consulting</span></a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22880"><a href="https://stats.idre.ucla.edu/ucla/policies/#Fee" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Fee for Service</span></a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30604"><a href="https://stats.idre.ucla.edu/ucla/frequently-asked-questions-about-our-statistical-consulting-services/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">FAQ</span></a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22687"><a href="https://stats.idre.ucla.edu/purchasing-and-updatingstatistical-software-packages/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Software Purchasing and Updating</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22688"><a href="https://stats.idre.ucla.edu/statistical-consultants-for-hire/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Consultants for Hire</span></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-23684 slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item" style="outline: medium none currentcolor;"><a itemprop="url"><span itemprop="name">Other Consulting Centers</span></a>
+	<span class="slicknav_arrow"> ►</span></a><ul class="sub-menu slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23685"><a href="http://scc.stat.ucla.edu/" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Department of Statistics Consulting Center</span></a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23686"><a href="http://biomath.ucla.edu/about/consulting" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">Department of Biomathematics Consulting Clinic</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22664"><a href="https://stats.idre.ucla.edu/ucla/about" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">ABOUT US</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26836"><a href="https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=371" itemprop="url" role="menuitem" tabindex="-1"><span itemprop="name">DONATE</span></a></li>
+</ul></div><div class="site-container"><ul class="genesis-skip-link"><li><a href="#genesis-nav-primary" class="screen-reader-shortcut"> Skip to primary navigation</a></li><li><a href="#genesis-content" class="screen-reader-shortcut"> Skip to content</a></li><li><a href="#genesis-sidebar-primary" class="screen-reader-shortcut"> Skip to primary sidebar</a></li></ul><header class="site-header" itemscope="" itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area">	<div class="title-area">
+	
+	<h1 class="site-title" itemprop="headline"><a href="https://idre.ucla.edu/"></a></h1>
+
+	<p class="site-description" itemprop="description">Institute for Digital Research and Education</p></div>
+</div><div class="widget-area header-widget-area"><section id="custom_html-2" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><h1><div class="top-wrap"><div class="ucla-logo"><img alt="Image " src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/UCLA.png"></div>
+<div class="top-txt">Institute for Digital Research and Education</div></div></h1></div></div></section>
+<section id="search-9" class="widget widget_search"><div class="widget-wrap"><form class="search-form" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction" method="get" action="https://stats.idre.ucla.edu/" role="search"><meta itemprop="target" content="https://stats.idre.ucla.edu/?s={s}"><label class="search-form-label screen-reader-text" for="searchform-5bb526b11fea85.04924932">Search this website</label><input itemprop="query-input" name="s" id="searchform-5bb526b11fea85.04924932" placeholder="Search this website …" type="search"><input value="Search" type="submit"></form></div></section>
+</div></div></header><nav class="nav-primary" aria-label="Main" itemscope="" itemtype="https://schema.org/SiteNavigationElement" id="genesis-nav-primary"><div class="wrap"><ul id="menu-idre-stats-navigation-menu" class="menu genesis-nav-menu menu-primary js-superfish sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li id="menu-item-22640" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22640"><a href="https://stats.idre.ucla.edu/" itemprop="url"><span itemprop="name">HOME</span></a></li>
+<li id="menu-item-22662" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22662"><a href="#" itemprop="url" class="sf-with-ul"><span itemprop="name">SOFTWARE</span></a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-22646" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22646"><a href="https://stats.idre.ucla.edu/r/" itemprop="url"><span itemprop="name">R</span></a></li>
+	<li id="menu-item-22649" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22649"><a href="https://stats.idre.ucla.edu/stata/" itemprop="url"><span itemprop="name">Stata</span></a></li>
+	<li id="menu-item-22647" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22647"><a href="https://stats.idre.ucla.edu/sas/" itemprop="url"><span itemprop="name">SAS</span></a></li>
+	<li id="menu-item-22648" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22648"><a href="https://stats.idre.ucla.edu/spss/" itemprop="url"><span itemprop="name">SPSS</span></a></li>
+	<li id="menu-item-22659" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22659"><a href="https://stats.idre.ucla.edu/mplus/" itemprop="url"><span itemprop="name">Mplus</span></a></li>
+	<li id="menu-item-22657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22657"><a href="https://stats.idre.ucla.edu/other/" itemprop="url" class="sf-with-ul"><span itemprop="name">Other Packages</span></a>
+	<ul class="sub-menu" style="display: none;">
+		<li id="menu-item-22658" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22658"><a href="https://stats.idre.ucla.edu/other/gpower/" itemprop="url"><span itemprop="name">G*Power</span></a></li>
+		<li id="menu-item-22684" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22684"><a href="https://stats.idre.ucla.edu/other/sudaan/" itemprop="url"><span itemprop="name">SUDAAN</span></a></li>
+		<li id="menu-item-22696" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22696"><a href="https://stats.idre.ucla.edu/spss/spss-user/sample-power/" itemprop="url"><span itemprop="name">Sample Power</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-22661" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22661"><a href="https://stats.idre.ucla.edu/" itemprop="url" class="sf-with-ul"><span itemprop="name">RESOURCES</span></a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-22656" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22656"><a href="https://stats.idre.ucla.edu/annotatedoutput" itemprop="url"><span itemprop="name">Annotated Output</span></a></li>
+	<li id="menu-item-22651" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22651"><a href="https://stats.idre.ucla.edu/other/dae/" itemprop="url"><span itemprop="name">Data Analysis Examples</span></a></li>
+	<li id="menu-item-22654" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22654"><a href="https://stats.idre.ucla.edu/other/mult-pkg/faq/" itemprop="url"><span itemprop="name">Frequently Asked Questions</span></a></li>
+	<li id="menu-item-22652" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22652"><a href="https://stats.idre.ucla.edu/other/mult-pkg/seminars/" itemprop="url"><span itemprop="name">Seminars</span></a></li>
+	<li id="menu-item-22653" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22653"><a href="https://stats.idre.ucla.edu/other/examples/" itemprop="url"><span itemprop="name">Textbook Examples</span></a></li>
+	<li id="menu-item-22692" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22692"><a href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/" itemprop="url"><span itemprop="name">Which Statistical Test?</span></a></li>
+</ul>
+</li>
+<li id="menu-item-22663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22663"><a href="https://stats.idre.ucla.edu/" itemprop="url" class="sf-with-ul"><span itemprop="name">SERVICES</span></a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-22660" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22660"><a href="https://stats.idre.ucla.edu/books/" itemprop="url"><span itemprop="name">Books for Loan</span></a></li>
+	<li id="menu-item-22655" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22655"><a href="https://stats.idre.ucla.edu/ucla/policies" itemprop="url" class="sf-with-ul"><span itemprop="name">Services and Policies</span></a>
+	<ul class="sub-menu" style="display: none;">
+		<li id="menu-item-22885" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22885"><a href="https://stats.idre.ucla.edu/ucla/policies/#WalkIn" itemprop="url"><span itemprop="name">Walk-In Consulting</span></a></li>
+		<li id="menu-item-22882" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22882"><a href="https://stats.idre.ucla.edu/ucla/policies/#EmailConsult" itemprop="url"><span itemprop="name">Email Consulting</span></a></li>
+		<li id="menu-item-22880" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22880"><a href="https://stats.idre.ucla.edu/ucla/policies/#Fee" itemprop="url"><span itemprop="name">Fee for Service</span></a></li>
+		<li id="menu-item-30604" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30604"><a href="https://stats.idre.ucla.edu/ucla/frequently-asked-questions-about-our-statistical-consulting-services/" itemprop="url"><span itemprop="name">FAQ</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-22687" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22687"><a href="https://stats.idre.ucla.edu/purchasing-and-updatingstatistical-software-packages/" itemprop="url"><span itemprop="name">Software Purchasing and Updating</span></a></li>
+	<li id="menu-item-22688" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22688"><a href="https://stats.idre.ucla.edu/statistical-consultants-for-hire/" itemprop="url"><span itemprop="name">Consultants for Hire</span></a></li>
+	<li id="menu-item-23684" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-23684"><a itemprop="url" class="sf-with-ul"><span itemprop="name">Other Consulting Centers</span></a>
+	<ul class="sub-menu" style="display: none;">
+		<li id="menu-item-23685" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23685"><a href="http://scc.stat.ucla.edu/" itemprop="url"><span itemprop="name">Department of Statistics Consulting Center</span></a></li>
+		<li id="menu-item-23686" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23686"><a href="http://biomath.ucla.edu/about/consulting" itemprop="url"><span itemprop="name">Department of Biomathematics Consulting Clinic</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-22664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22664"><a href="https://stats.idre.ucla.edu/ucla/about" itemprop="url"><span itemprop="name">ABOUT US</span></a></li>
+<li id="menu-item-26836" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26836"><a href="https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=371" itemprop="url"><span itemprop="name">DONATE</span></a></li>
+</ul></div></nav><div class="site-inner"><div class="content-sidebar-wrap"><main class="content" id="genesis-content"><article class="post-1184 page type-page status-publish entry" itemscope="" itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">What statistical analysis should I use? Statistical analyses using R</h1>
+</header><div class="entry-content" itemprop="text"><p><b>Version info:</b> Code for this page was tested in R 2.15.2.</p>
+<p><!--#rinline buildInfo()end.rcode--></p>
+<h2>Introduction</h2>
+<blockquote><p>This page shows how to perform a number of statistical tests using R.
+Each section gives a brief description of the aim of the statistical test,
+when it is used, an example showing the R commands and R output with
+a brief interpretation of the output. You can see the page
+<a href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/">
+Choosing the Correct Statistical Test</a> for a table that shows an overview
+of when each test is appropriate to use.&nbsp; In deciding which test is
+appropriate to use, it is important to consider the type of variables that
+you have (i.e., whether your variables are categorical, ordinal or interval
+and whether they are normally distributed), see
+<a href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/what-is-the-difference-between-categorical-ordinal-and-interval-variables/">
+What is the difference between categorical, ordinal and interval variables?</a>
+for more information on this.</p></blockquote>
+<h2>Setup</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r">hsb2 &lt;- <span class="functioncall">within</span>(<span class="functioncall">read.csv</span>(<span class="string">"https://stats.idre.ucla.edu/stat/data/hsb2.csv"</span>), {
+    race &lt;- <span class="functioncall">as.factor</span>(race)
+    schtyp &lt;- <span class="functioncall">as.factor</span>(schtyp)
+    prog &lt;- <span class="functioncall">as.factor</span>(prog)
+})
+
+<span class="functioncall">attach</span>(hsb2)
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="1sampt"></a>One sample t-test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">t.test</span>(write, mu = 50)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	One Sample t-test
+## 
+## data:  write 
+## t = 4.14, df = 199, p-value = 5.121e-05
+## alternative hypothesis: true mean is not equal to 50 
+## 95 percent confidence interval:
+##  51.5 54.1 
+## sample estimates:
+## mean of x 
+##      52.8
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="1sampm"></a>One sample median test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">wilcox.test</span>(write, mu = 50)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Wilcoxon signed rank test with continuity correction
+## 
+## data:  write 
+## V = 13177, p-value = 3.702e-05
+## alternative hypothesis: true location is not equal to 50
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="bitest"></a>Binomial test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">prop.test</span>(<span class="functioncall">sum</span>(female), <span class="functioncall">length</span>(female), p = 0.5)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	1-sample proportions test with continuity correction
+## 
+## data:  sum(female) out of length(female), null probability 0.5 
+## X-squared = 1.45, df = 1, p-value = 0.2293
+## alternative hypothesis: true p is not equal to 0.5 
+## 95 percent confidence interval:
+##  0.473 0.615 
+## sample estimates:
+##     p 
+## 0.545
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="chifit"></a>Chi-square goodness of fit</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">chisq.test</span>(<span class="functioncall">table</span>(race), p = <span class="functioncall">c</span>(10, 10, 10, 70)/100)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Chi-squared test for given probabilities
+## 
+## data:  table(race) 
+## X-squared = 5.03, df = 3, p-value = 0.1697
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="2ittest"></a>Two independent samples t-test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">t.test</span>(write ~ female)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Welch Two Sample t-test
+## 
+## data:  write by female 
+## t = -3.66, df = 170, p-value = 0.0003409
+## alternative hypothesis: true difference in means is not equal to 0 
+## 95 percent confidence interval:
+##  -7.50 -2.24 
+## sample estimates:
+## mean in group 0 mean in group 1 
+##            50.1            55.0
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="wilc"></a>Wilcoxon-Mann-Whitney test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">wilcox.test</span>(write ~ female)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Wilcoxon rank sum test with continuity correction
+## 
+## data:  write by female 
+## W = 3606, p-value = 0.0008749
+## alternative hypothesis: true location shift is not equal to 0
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="chisq"></a>Chi-square test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">chisq.test</span>(<span class="functioncall">table</span>(female, schtyp))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  table(female, schtyp) 
+## X-squared = 5e-04, df = 1, p-value = 0.9815
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="exact"></a>Fisher’s exact test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">fisher.test</span>(<span class="functioncall">table</span>(race, schtyp))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Fisher's Exact Test for Count Data
+## 
+## data:  table(race, schtyp) 
+## p-value = 0.5975
+## alternative hypothesis: two.sided
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="1anova"></a>One-way ANOVA</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">summary</span>(<span class="functioncall">aov</span>(write ~ prog))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">##              Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## prog          2   3176    1588    21.3 4.3e-09 ***
+## Residuals   197  14703      75                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="kw"></a>Kruskal Wallis test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">kruskal.test</span>(write, prog)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Kruskal-Wallis rank sum test
+## 
+## data:  write and prog 
+## Kruskal-Wallis chi-squared = 34, df = 2, p-value = 4.047e-08
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="pairt"></a>Paired t-test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">t.test</span>(write, read, paired = <span class="keyword">TRUE</span>)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Paired t-test
+## 
+## data:  write and read 
+## t = 0.867, df = 199, p-value = 0.3868
+## alternative hypothesis: true difference in means is not equal to 0 
+## 95 percent confidence interval:
+##  -0.694  1.784 
+## sample estimates:
+## mean of the differences 
+##                   0.545
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="wilcsign"></a>Wilcoxon signed rank sum test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">wilcox.test</span>(write, read, paired = <span class="keyword">TRUE</span>)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Wilcoxon signed rank test with continuity correction
+## 
+## data:  write and read 
+## V = 9261, p-value = 0.3666
+## alternative hypothesis: true location shift is not equal to 0
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="Mcnemar"></a>McNemar test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r">X &lt;- <span class="functioncall">matrix</span>(<span class="functioncall">c</span>(172, 7, 6, 15), 2, 2)
+<span class="functioncall">mcnemar.test</span>(X)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	McNemar's Chi-squared test with continuity correction
+## 
+## data:  X 
+## McNemar's chi-squared = 0, df = 1, p-value = 1
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="1repanova"></a>One-way repeated measures ANOVA</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">require</span>(car)
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: car
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: MASS
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: nnet
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: survival
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: splines
+</pre>
+</div>
+<div class="source">
+<pre class="knitr r"><span class="functioncall">require</span>(foreign)
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: foreign
+</pre>
+</div>
+<div class="source">
+<pre class="knitr r">kirk &lt;- <span class="functioncall">within</span>(<span class="functioncall">read.dta</span>(<span class="string">"https://stats.idre.ucla.edu/stat/stata/examples/kirk/rb4.dta"</span>), 
+    {
+        s &lt;- <span class="functioncall">as.factor</span>(s)
+        a &lt;- <span class="functioncall">as.factor</span>(a)
+    })
+
+model &lt;- <span class="functioncall">lm</span>(y ~ a + s, data = kirk)
+analysis &lt;- <span class="functioncall">Anova</span>(model, idata = kirk, idesign = ~s)
+<span class="functioncall">print</span>(analysis)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## Anova Table (Type II tests)
+## 
+## Response: y
+##           Sum Sq Df F value  Pr(&gt;F)    
+## a           49.0  3    11.6 0.00011 ***
+## s           31.5  7     3.2 0.01802 *  
+## Residuals   29.5 21                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="1replog"></a>Repeated measures logistic regression</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">require</span>(lme4)
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: lme4
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: Matrix
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: lattice
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Attaching package: 'lme4'
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## The following object(s) are masked from 'package:stats':
+## 
+## AIC, BIC
+</pre>
+</div>
+<div class="source">
+<pre class="knitr r">exercise &lt;- <span class="functioncall">within</span>(<span class="functioncall">read.dta</span>(<span class="string">"https://stats.idre.ucla.edu/stat/stata/whatstat/exercise.dta"</span>), 
+    {
+        id &lt;- <span class="functioncall">as.factor</span>(id)
+        diet &lt;- <span class="functioncall">as.factor</span>(diet)
+    })
+<span class="functioncall">glmer</span>(highpulse ~ diet + (1 | id), data = exercise, family = binomial)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## Generalized linear mixed model fit by the Laplace approximation 
+## Formula: highpulse ~ diet + (1 | id) 
+##    Data: exercise 
+##  AIC BIC logLik deviance
+##  105 113  -49.7     99.5
+## Random effects:
+##  Groups Name        Variance Std.Dev.
+##  id     (Intercept) 3.32     1.82    
+## Number of obs: 90, groups: id, 30
+## 
+## Fixed effects:
+##             Estimate Std. Error z value Pr(&gt;|z|)   
+## (Intercept)   -2.004      0.663   -3.02   0.0025 **
+## diet2          1.145      0.898    1.27   0.2022   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+## 
+## Correlation of Fixed Effects:
+##       (Intr)
+## diet2 -0.738
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="factanov"></a>Factorial ANOVA</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">anova</span>(<span class="functioncall">lm</span>(write ~ female * ses, data = hsb2))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## Analysis of Variance Table
+## 
+## Response: write
+##             Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## female       1   1176    1176    14.7 0.00017 ***
+## ses          1   1042    1042    13.1 0.00039 ***
+## female:ses   1      0       0     0.0 0.98276    
+## Residuals  196  15660      80                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="fried"></a>Friedman test</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">friedman.test</span>(<span class="functioncall">cbind</span>(read, write, math))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Friedman rank sum test
+## 
+## data:  cbind(read, write, math) 
+## Friedman chi-squared = 0.645, df = 2, p-value = 0.7244
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="faclogistic"></a>Factorial logistic regression</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">summary</span>(<span class="functioncall">glm</span>(female ~ prog * schtyp, data = hsb2, family = binomial))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## Call:
+## glm(formula = female ~ prog * schtyp, family = binomial, data = hsb2)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+##  -1.89   -1.25    1.06    1.11    1.20  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)    -0.0513     0.3204   -0.16     0.87
+## prog2           0.3246     0.3911    0.83     0.41
+## prog3           0.2183     0.4319    0.51     0.61
+## schtyp2         1.6607     1.1413    1.46     0.15
+## prog2:schtyp2  -1.9340     1.2327   -1.57     0.12
+## prog3:schtyp2  -1.8278     1.8402   -0.99     0.32
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 275.64  on 199  degrees of freedom
+## Residual deviance: 272.49  on 194  degrees of freedom
+## AIC: 284.5
+## 
+## Number of Fisher Scoring iterations: 3
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="corr"></a>Correlation</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">cor</span>(read, write)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## [1] 0.597
+</pre>
+</div>
+<div class="source">
+<pre class="knitr r"><span class="functioncall">cor.test</span>(read, write)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Pearson's product-moment correlation
+## 
+## data:  read and write 
+## t = 10.5, df = 198, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0 
+## 95 percent confidence interval:
+##  0.499 0.679 
+## sample estimates:
+##   cor 
+## 0.597
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="simpreg"></a>Simple linear regression</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">lm</span>(write ~ read)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## Call:
+## lm(formula = write ~ read)
+## 
+## Coefficients:
+## (Intercept)         read  
+##      23.959        0.552
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="nonparr"></a>Non-parametric correlation</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">cor.test</span>(write, read, method = <span class="string">"spearman"</span>)
+</pre>
+</div>
+<div class="warning">
+<pre class="knitr r">## Warning: Cannot compute exact p-values with ties
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## 	Spearman's rank correlation rho
+## 
+## data:  write and read 
+## S = 510993, p-value &lt; 2.2e-16
+## alternative hypothesis: true rho is not equal to 0 
+## sample estimates:
+##   rho 
+## 0.617
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="simplog"></a>Simple logistic regression</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">glm</span>(female ~ read, family = binomial)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## Call:  glm(formula = female ~ read, family = binomial)
+## 
+## Coefficients:
+## (Intercept)         read  
+##      0.7261      -0.0104  
+## 
+## Degrees of Freedom: 199 Total (i.e. Null);  198 Residual
+## Null Deviance:	    276 
+## Residual Deviance: 275 	AIC: 279
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="multreg"></a>Multiple regression</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">lm</span>(write ~ female + read + math + science + socst)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## Call:
+## lm(formula = write ~ female + read + math + science + socst)
+## 
+## Coefficients:
+## (Intercept)       female         read         math      science  
+##       6.139        5.493        0.125        0.238        0.242  
+##       socst  
+##       0.229
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="ancova"></a>Analysis of covariance</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">summary</span>(<span class="functioncall">aov</span>(write ~ prog + read))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">##              Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## prog          2   3176    1588    28.6 1.2e-11 ***
+## read          1   3842    3842    69.3 1.4e-14 ***
+## Residuals   196  10861      55                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="logistic"></a>Multiple logistic regression</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">glm</span>(female ~ read + write, family = binomial)
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## Call:  glm(formula = female ~ read + write, family = binomial)
+## 
+## Coefficients:
+## (Intercept)         read        write  
+##      -1.706       -0.071        0.106  
+## 
+## Degrees of Freedom: 199 Total (i.e. Null);  197 Residual
+## Null Deviance:	    276 
+## Residual Deviance: 248 	AIC: 254
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="manova"></a>One-way MANOVA</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">summary</span>(<span class="functioncall">manova</span>(<span class="functioncall">cbind</span>(read, write, math) ~ prog))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">##            Df Pillai approx F num Df den Df  Pr(&gt;F)    
+## prog        2  0.267     10.1      6    392 2.3e-10 ***
+## Residuals 197                                          
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="mmreg"></a>Multivariate multiple regression</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r">M1 &lt;- <span class="functioncall">lm</span>(<span class="functioncall">cbind</span>(write, read) ~ female + math + science + socst, data = hsb2)
+
+<span class="functioncall">require</span>(car)
+<span class="functioncall">summary</span>(<span class="functioncall">Anova</span>(M1))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## 
+## Type II MANOVA Tests:
+## 
+## Sum of squares and products for error:
+##       write read
+## write  7259 1091
+## read   1091 8700
+## 
+## ------------------------------------------
+##  
+## Term: female 
+## 
+## Sum of squares and products for the hypothesis:
+##       write   read
+## write  1414 -133.5
+## read   -133   12.6
+## 
+## Multivariate Tests: female
+##                  Df test stat approx F num Df den Df  Pr(&gt;F)    
+## Pillai            1     0.170     19.9      2    194 1.4e-08 ***
+## Wilks             1     0.830     19.9      2    194 1.4e-08 ***
+## Hotelling-Lawley  1     0.205     19.9      2    194 1.4e-08 ***
+## Roy               1     0.205     19.9      2    194 1.4e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+## 
+## ------------------------------------------
+##  
+## Term: math 
+## 
+## Sum of squares and products for the hypothesis:
+##       write read
+## write   715  856
+## read    856 1026
+## 
+## Multivariate Tests: math
+##                  Df test stat approx F num Df den Df  Pr(&gt;F)    
+## Pillai            1      0.16     18.5      2    194 4.6e-08 ***
+## Wilks             1      0.84     18.5      2    194 4.6e-08 ***
+## Hotelling-Lawley  1      0.19     18.5      2    194 4.6e-08 ***
+## Roy               1      0.19     18.5      2    194 4.6e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+## 
+## ------------------------------------------
+##  
+## Term: science 
+## 
+## Sum of squares and products for the hypothesis:
+##       write read
+## write   858  901
+## read    901  947
+## 
+## Multivariate Tests: science
+##                  Df test stat approx F num Df den Df  Pr(&gt;F)    
+## Pillai            1     0.166     19.4      2    194 2.1e-08 ***
+## Wilks             1     0.834     19.4      2    194 2.1e-08 ***
+## Hotelling-Lawley  1     0.200     19.4      2    194 2.1e-08 ***
+## Roy               1     0.200     19.4      2    194 2.1e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+## 
+## ------------------------------------------
+##  
+## Term: socst 
+## 
+## Sum of squares and products for the hypothesis:
+##       write read
+## write  1106 1277
+## read   1277 1476
+## 
+## Multivariate Tests: socst
+##                  Df test stat approx F num Df den Df  Pr(&gt;F)    
+## Pillai            1     0.221     27.5      2    194 3.1e-11 ***
+## Wilks             1     0.779     27.5      2    194 3.1e-11 ***
+## Hotelling-Lawley  1     0.283     27.5      2    194 3.1e-11 ***
+## Roy               1     0.283     27.5      2    194 3.1e-11 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="cancor"></a>Canonical correlation</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">require</span>(CCA)
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: CCA
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: fda
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: zoo
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Attaching package: 'zoo'
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## The following object(s) are masked from 'package:base':
+## 
+## as.Date, as.Date.numeric
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Attaching package: 'fda'
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## The following object(s) are masked from 'package:graphics':
+## 
+## matplot
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: fields
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: spam
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Spam version 0.29-3 (2013-04-23) is loaded. Type 'help( Spam)' or 'demo(
+## spam)' for a short introduction and overview of this package. Help for
+## individual functions is also obtained by adding the suffix '.spam' to the
+## function name, e.g. 'help( chol.spam)'.
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Attaching package: 'spam'
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## The following object(s) are masked from 'package:base':
+## 
+## backsolve, forwardsolve
+</pre>
+</div>
+<div class="message">
+<pre class="knitr r">## Loading required package: maps
+</pre>
+</div>
+<div class="source">
+<pre class="knitr r"><span class="functioncall">cc</span>(<span class="functioncall">cbind</span>(read, write), <span class="functioncall">cbind</span>(math, science))
+</pre>
+</div>
+<div class="output">
+<pre class="knitr r">## $cor
+## [1] 0.7728 0.0235
+## 
+## $names
+## $names$Xnames
+## [1] "read"  "write"
+## 
+## $names$Ynames
+## [1] "math"    "science"
+## 
+## $names$ind.names
+## NULL
+## 
+## 
+## $xcoef
+##          [,1]   [,2]
+## read  -0.0633 -0.104
+## write -0.0492  0.122
+## 
+## $ycoef
+##            [,1]   [,2]
+## math    -0.0670  0.120
+## science -0.0482 -0.121
+## 
+## $scores
+## $scores$xscores
+##           [,1]     [,2]
+##   [1,] -0.2636 -0.58956
+##   [2,] -1.3042 -0.87790
+##   [3,]  1.4945 -1.55654
+##   [4,] -0.2492 -2.18757
+##   [5,]  0.3690  0.44835
+##   [6,]  0.5588  0.75972
+##   [7,] -0.1655  0.99033
+##   [8,]  1.4869  1.06618
+##   [9,] -0.8894 -0.60276
+##  [10,] -0.4113 -0.22384
+##  [11,] -0.1579 -1.63238
+##  [12,] -0.9038  0.99525
+##  [13,] -1.6698 -1.27495
+##  [14,] -0.6155  1.06280
+##  [15,]  0.2493  1.26547
+##  [16,]  0.8331  0.60158
+##  [17,]  0.3690  0.44835
+##  [18,] -0.5098  0.01998
+##  [19,] -1.5997 -0.14645
+##  [20,]  0.5032 -1.96679
+##  [21,] -0.4954 -1.57803
+##  [22,] -1.1849  0.12869
+##  [23,]  0.7702 -1.32593
+##  [24,] -0.4534 -0.90093
+##  [25,]  1.3956  0.51099
+##  [26,]  1.9302 -0.03100
+##  [27,] -1.4099  0.16492
+##  [28,]  0.1228  1.05789
+##  [29,]  1.2483 -0.94700
+##  [30,]  0.4467 -1.04587
+##  [31,]  1.7196 -1.59277
+##  [32,] -1.4656 -2.56159
+##  [33,] -1.5084  0.40874
+##  [34,]  1.2271 -0.37369
+##  [35,] -0.2920  0.78275
+##  [36,] -1.0936  0.68388
+##  [37,] -1.0580 -1.48744
+##  [38,] -1.2622 -0.20080
+##  [39,]  1.4033 -2.11173
+##  [40,]  1.9093 -1.28140
+##  [41,]  0.6153 -0.16119
+##  [42,] -0.4818  0.47138
+##  [43,] -0.0458  0.17321
+##  [44,]  1.2271 -0.37369
+##  [45,] -1.4099  0.16492
+##  [46,] -0.4818  0.47138
+##  [47,]  0.7702 -1.32593
+##  [48,] -1.1144 -0.56653
+##  [49,]  0.0243  1.30171
+##  [50,] -0.3621 -0.34574
+##  [51,] -0.4538  0.92278
+##  [52,]  1.8108 -1.03759
+##  [53,]  0.9528 -0.21555
+##  [54,] -0.9879 -0.35895
+##  [55,] -1.7683 -1.03113
+##  [56,]  1.5154 -0.30614
+##  [57,]  1.7404 -0.34237
+##  [58,]  1.3256 -0.61751
+##  [59,] -0.8894 -0.60276
+##  [60,]  0.4535 -0.02117
+##  [61,]  0.4747 -0.59448
+##  [62,] -0.1235  1.66743
+##  [63,]  0.9528 -0.21555
+##  [64,]  2.1272 -0.51863
+##  [65,]  0.6717 -1.08211
+##  [66,]  1.1005 -0.58127
+##  [67,] -0.5519 -0.65712
+##  [68,]  1.0093 -1.13646
+##  [69,] -0.1999 -2.30948
+##  [70,]  1.1150 -2.17928
+##  [71,]  0.9528 -0.21555
+##  [72,] -0.5519 -0.65712
+##  [73,] -2.0145 -0.42159
+##  [74,] -1.3042 -0.87790
+##  [75,]  0.2077 -1.23534
+##  [76,]  0.9600 -1.01455
+##  [77,] -0.5803  0.71520
+##  [78,] -1.3042 -0.87790
+##  [79,]  2.1692  0.15847
+##  [80,]  0.9108 -0.89265
+##  [81,] -0.9879 -0.35895
+##  [82,]  1.2126  1.22432
+##  [83,] -1.3042 -0.87790
+##  [84,] -1.2834  0.37250
+##  [85,]  0.4047 -1.72297
+##  [86,] -0.6296  0.83710
+##  [87,]  0.5945 -1.41160
+##  [88,]  1.3392  1.43190
+##  [89,]  1.2135 -2.42310
+##  [90,]  0.0107 -0.74770
+##  [91,] -0.4398  1.14848
+##  [92,] -0.4954 -1.57803
+##  [93,] -1.4520 -0.51218
+##  [94,]  1.2691  0.30341
+##  [95,]  0.9528 -0.21555
+##  [96,] -0.3133  1.35606
+##  [97,] -1.7895 -0.45782
+##  [98,] -1.2834  0.37250
+##  [99,]  1.5854  0.82236
+## [100,] -1.1849  0.12869
+## [101,] -1.3535 -0.75599
+## [102,]  0.0243  1.30171
+## [103,]  0.6645 -0.28310
+## [104,] -0.6432 -1.21231
+## [105,] -0.2920  0.78275
+## [106,] -0.2356 -0.13816
+## [107,] -0.9459  0.31815
+## [108,]  1.9654 -0.37861
+## [109,]  0.2705  0.69216
+## [110,] -1.7895 -0.45782
+## [111,] -0.2636 -0.58956
+## [112,]  0.6573  0.51590
+## [113,] -1.1144 -0.56653
+## [114,] -1.5997 -0.14645
+## [115,] -1.7190 -1.15304
+## [116,]  1.4589  0.61478
+## [117,]  0.5236  1.10733
+## [118,] -2.0145 -0.42159
+## [119,] -0.1935  0.53893
+## [120,]  0.9948  0.46155
+## [121,] -0.5519 -0.65712
+## [122,]  0.1792  0.13697
+## [123,]  0.1792  0.13697
+## [124,]  0.6645 -0.28310
+## [125,] -0.1235  1.66743
+## [126,] -0.3833  0.22756
+## [127,]  0.7210 -1.20402
+## [128,]  0.8259  1.40058
+## [129,]  0.3270 -0.22875
+## [130,]  2.0287 -0.27481
+## [131,] -0.6083  0.26380
+## [132,] -0.9038  0.99525
+## [133,] -1.4520 -0.51218
+## [134,]  0.5868  1.21112
+## [135,] -0.8614 -0.15137
+## [136,] -2.0073 -1.22059
+## [137,]  0.0243  1.30171
+## [138,]  0.4323  0.55214
+## [139,]  1.4169 -0.06232
+## [140,]  0.2005 -0.43633
+## [141,]  1.8665  1.68892
+## [142,]  0.5868  1.21112
+## [143,]  0.8615 -0.77074
+## [144,]  0.1228  1.05789
+## [145,] -0.2920  0.78275
+## [146,]  0.3690  0.44835
+## [147,] -0.3133  1.35606
+## [148,]  0.5588  0.75972
+## [149,]  0.9108 -0.89265
+## [150,]  0.3478  1.02165
+## [151,]  1.1078 -1.38028
+## [152,] -0.8682 -1.17607
+## [153,]  0.3758  1.47305
+## [154,]  0.2705  0.69216
+## [155,] -0.7561  0.62952
+## [156,] -1.3042 -0.87790
+## [157,] -0.0950  0.29512
+## [158,]  0.4391  1.57684
+## [159,]  1.3256 -0.61751
+## [160,] -1.5717  0.30495
+## [161,] -0.1235  1.66743
+## [162,] -0.1651 -0.83338
+## [163,] -0.0742  1.54552
+## [164,] -0.7561  0.62952
+## [165,] -0.2920  0.78275
+## [166,]  0.9528 -0.21555
+## [167,] -0.1655  0.99033
+## [168,]  0.7766  1.52249
+## [169,] -0.7561  0.62952
+## [170,] -0.6576  0.38571
+## [171,]  0.4391  1.57684
+## [172,]  0.6645 -0.28310
+## [173,]  1.4733 -0.98323
+## [174,] -0.7981 -0.04757
+## [175,]  0.7066  0.39399
+## [176,] -1.0371 -0.23704
+## [177,] -1.5084  0.40874
+## [178,]  0.7766  1.52249
+## [179,]  0.1792  0.13697
+## [180,] -0.5875  1.51420
+## [181,] -0.9459  0.31815
+## [182,]  0.7066  0.39399
+## [183,] -0.6860  1.75802
+## [184,] -0.7773  1.20283
+## [185,] -0.5595  1.96560
+## [186,] -1.4099  0.16492
+## [187,] -0.0458  0.17321
+## [188,]  0.7630 -0.52692
+## [189,] -1.1356  0.00678
+## [190,]  0.4747 -0.59448
+## [191,]  0.5868  1.21112
+## [192,]  0.8187  2.19959
+## [193,]  0.1792  0.13697
+## [194,]  0.4038  1.92445
+## [195,] -0.2712  2.03316
+## [196,] -0.4818  0.47138
+## [197,]  0.9808  0.23585
+## [198,]  0.2782 -1.93055
+## [199,] -0.6296  0.83710
+## [200,] -1.2834  0.37250
+## 
+## $scores$yscores
+##            [,1]    [,2]
+##   [1,]  1.01398 -0.8128
+##   [2,] -0.56166 -1.3052
+##   [3,] -0.38744 -0.5807
+##   [4,]  0.32264 -0.8172
+##   [5,] -0.34719  0.3842
+##   [6,] -0.42770 -1.5455
+##   [7,]  0.65755 -1.4179
+##   [8,]  1.13197  0.6349
+##   [9,] -0.38744 -0.5807
+##  [10,]  0.13245  0.1461
+##  [11,]  0.05471 -0.3367
+##  [12,] -0.42770 -1.5455
+##  [13,] -1.67087  1.0991
+##  [14,] -0.44367  0.1424
+##  [15,]  1.18299  2.2027
+##  [16,]  0.73529 -0.9351
+##  [17,]  0.19943  0.0260
+##  [18,] -0.78934  0.1402
+##  [19,] -0.77858  0.7431
+##  [20,] -0.34719  0.3842
+##  [21,]  0.49930 -3.8305
+##  [22,] -2.46945  0.2499
+##  [23,]  0.36012 -1.2993
+##  [24,] -0.73311 -0.5829
+##  [25,]  1.13197  0.6349
+##  [26,]  1.06499  0.7550
+##  [27,] -1.33596  0.4984
+##  [28,] -0.58839 -0.2202
+##  [29,]  0.86404  1.1155
+##  [30,]  0.09219 -0.8187
+##  [31,] -0.05774  1.1095
+##  [32,] -1.34671 -0.1045
+##  [33,] -1.37621 -0.4665
+##  [34,] -1.26376 -1.9126
+##  [35,] -0.26423 -1.4239
+##  [36,] -0.80009 -0.4627
+##  [37,] -2.18000  0.9752
+##  [38,] -1.71112  0.1343
+##  [39,]  1.34368  0.8774
+##  [40,]  1.46689  0.0342
+##  [41,]  1.25518 -0.2083
+##  [42,] -0.92330  0.3805
+##  [43,] -0.44367  0.1424
+##  [44,]  0.73529 -0.9351
+##  [45,] -0.22675 -1.9059
+##  [46,] -1.52093 -0.8291
+##  [47,]  1.05146 -1.2948
+##  [48,] -1.70037  0.7372
+##  [49,] -0.74908  1.1051
+##  [50,] -0.19171  1.3498
+##  [51,] -0.80808  0.3812
+##  [52,]  1.21493 -1.1732
+##  [53,] -0.47040  1.2274
+##  [54,]  0.09219 -0.8187
+##  [55,] -2.19076  0.3723
+##  [56,]  1.82609  2.0863
+##  [57,]  1.62237  0.9998
+##  [58,]  0.71378 -2.1410
+##  [59,] -0.45442 -0.4605
+##  [60,]  0.42189  0.8715
+##  [61,]  0.21540 -1.6619
+##  [62,] -1.38697 -1.0694
+##  [63,]  1.77507  0.5185
+##  [64,]  1.54463  0.5170
+##  [65,]  0.94178  1.5983
+##  [66,]  0.93624 -1.2956
+##  [67,] -0.64462  0.5029
+##  [68,]  0.85329  0.5125
+##  [69,] -1.06004 -0.8261
+##  [70,]  0.62284  0.5110
+##  [71,]  1.06499  0.7550
+##  [72,] -0.65537 -0.1001
+##  [73,] -1.76735  0.8573
+##  [74,] -1.42722 -2.0343
+##  [75,]  0.14842 -1.5418
+##  [76,]  0.97650 -0.3307
+##  [77,]  0.04672  0.5073
+##  [78,] -0.76261 -0.9448
+##  [79,]  1.06499  0.7550
+##  [80,]  0.38441  1.3535
+##  [81,] -0.44367  0.1424
+##  [82,] -0.53216 -0.9433
+##  [83,] -1.91207  0.4947
+##  [84,] -0.22675 -1.9059
+##  [85,]  1.22568 -0.5702
+##  [86,] -1.29847  0.0163
+##  [87,]  0.05471 -0.3367
+##  [88,]  1.38915 -0.4486
+##  [89,]  1.70809  0.6386
+##  [90,] -1.00104 -0.1023
+##  [91,] -0.66059  2.1908
+##  [92,] -0.43845 -2.1485
+##  [93,] -1.65490 -0.5888
+##  [94,]  0.42189  0.8715
+##  [95,]  0.67907 -0.2120
+##  [96,] -1.09752 -0.3441
+##  [97,] -1.97905  0.6148
+##  [98,] -2.05679  0.1320
+##  [99,]  1.46689  0.0342
+## [100,] -1.53690  0.8588
+## [101,] -1.58792 -0.7090
+## [102,] -0.90733 -1.3075
+## [103,]  1.15349  1.8408
+## [104,] -0.00152  0.3864
+## [105,] -0.46518 -1.0635
+## [106,] -0.41938  2.7952
+## [107,] -0.87229  1.9483
+## [108,]  0.88800 -1.4164
+## [109,]  0.53435 -0.5747
+## [110,] -1.39218  1.2215
+## [111,]  0.40559 -2.6253
+## [112,]  1.39991  0.1543
+## [113,] -0.00950  1.2304
+## [114,] -0.70361 -0.2210
+## [115,] -0.44367  0.1424
+## [116,]  1.52311 -0.6889
+## [117,] -0.30970 -0.0979
+## [118,] -0.92330  0.3805
+## [119,] -1.05727  0.6208
+## [120,]  1.46689  0.0342
+## [121,]  0.26641 -0.0941
+## [122,]  0.53435 -0.5747
+## [123,]  0.59611  1.5960
+## [124,]  0.22893  0.3879
+## [125,]  1.37318  1.2393
+## [126,] -0.52141 -0.3404
+## [127,]  0.89077  0.0305
+## [128,] -0.00152  0.3864
+## [129,]  0.00924  0.9894
+## [130,]  1.88231  1.3632
+## [131,] -0.00152  0.3864
+## [132,] -1.40017  2.0655
+## [133,] -0.13548  0.6267
+## [134,]  0.61208 -0.0919
+## [135,]  0.62284  0.5110
+## [136,] -1.22350 -0.9478
+## [137,] -0.38744 -0.5807
+## [138,]  0.22094  1.2319
+## [139,]  1.79104 -1.1695
+## [140,]  0.62284  0.5110
+## [141,]  1.02474 -0.2098
+## [142,]  0.26641 -0.0941
+## [143,]  0.66310  1.4759
+## [144,]  0.68982  0.3909
+## [145,] -0.41417  0.5043
+## [146,]  0.83177 -0.6934
+## [147,]  0.62806 -1.7798
+## [148,]  1.02474 -0.2098
+## [149,]  1.01675  0.6342
+## [150,]  1.44016  1.1192
+## [151,]  1.12122  0.0320
+## [152,] -0.85632  0.2603
+## [153,]  0.93624 -1.2956
+## [154,]  0.18868 -0.5769
+## [155,] -0.52141 -0.3404
+## [156,] -0.71160  0.6230
+## [157,]  0.07345 -0.5777
+## [158,]  0.34415  0.3887
+## [159,]  1.18820 -0.0882
+## [160,] -1.40294  0.6185
+## [161,] -0.07926 -0.0964
+## [162,]  0.21817 -0.2150
+## [163,] -0.42770 -1.5455
+## [164,] -1.73785  1.2193
+## [165,]  0.15918 -0.9389
+## [166,]  1.41865 -0.0867
+## [167,] -0.46518 -1.0635
+## [168,]  1.14795 -1.0530
+## [169,] -0.84556  0.8633
+## [170,]  0.05471 -0.3367
+## [171,]  0.60133 -0.6948
+## [172,]  1.14795 -1.0530
+## [173,]  1.71885  1.2416
+## [174,] -1.06802  0.0178
+## [175,]  1.39192  0.9983
+## [176,] -0.93129  1.2245
+## [177,] -0.84556  0.8633
+## [178,] -0.14624  0.0238
+## [179,]  0.21540 -1.6619
+## [180,] -0.69286  0.3820
+## [181,]  0.33340 -0.2143
+## [182,]  0.93103  0.9953
+## [183,] -0.82959 -0.8247
+## [184,] -0.06850  0.5066
+## [185,] -1.57716 -0.1060
+## [186,] -1.05727  0.6208
+## [187,] -0.21322  0.1439
+## [188,]  1.18820 -0.0882
+## [189,] -0.37668  0.0223
+## [190,] -0.07926 -0.0964
+## [191,]  1.25518 -0.2083
+## [192,]  0.80228 -1.0553
+## [193,] -0.17574 -0.3381
+## [194,]  1.57413  0.8789
+## [195,] -0.40341  1.1073
+## [196,]  0.51837  1.1132
+## [197,]  1.74558  0.1566
+## [198,] -0.44367  0.1424
+## [199,] -0.65537 -0.1001
+## [200,] -0.88305  1.3453
+## 
+## $scores$corr.X.xscores
+##         [,1]   [,2]
+## read  -0.927 -0.375
+## write -0.854  0.520
+## 
+## $scores$corr.Y.xscores
+##           [,1]    [,2]
+## math    -0.718  0.0087
+## science -0.675 -0.0114
+## 
+## $scores$corr.X.yscores
+##         [,1]     [,2]
+## read  -0.717 -0.00879
+## write -0.660  0.01222
+## 
+## $scores$corr.Y.yscores
+##           [,1]   [,2]
+## math    -0.929  0.371
+## science -0.873 -0.487
+</pre>
+</div>
+</div>
+</div>
+<h2><a name="factor"></a>Factor analysis</h2>
+<div class="chunk">
+<div class="rcode">
+<div class="source">
+<pre class="knitr r"><span class="functioncall">require</span>(psych)
+</pre>
+<pre class="knitr r"><span class="GGHFMYIBCOB ace_keyword">fa(r = cor(model.matrix(~read + write + math + science + socst - 1, data = hsb2)), rotate = "none", fm = "pa", 2)</span>
+</pre>
+</div>
+<pre>## Factor Analysis using method =  pa
+## Call: fa(r = cor(model.matrix(~read + write + math + science + socst - 
+##     1, data = hsb2)), nfactors = 2, rotate = "none", fm = "pa")
+## Standardized loadings (pattern matrix) based upon correlation matrix
+##          PA1   PA2   h2   u2 com
+## read    0.81  0.06 0.66 0.34 1.0
+## write   0.76  0.00 0.58 0.42 1.0
+## math    0.80  0.17 0.67 0.33 1.1
+## science 0.75  0.26 0.62 0.38 1.2
+## socst   0.79 -0.48 0.85 0.15 1.6
+## 
+##                        PA1  PA2
+## SS loadings           3.06 0.33
+## Proportion Var        0.61 0.07
+## Cumulative Var        0.61 0.68
+## Proportion Explained  0.90 0.10
+## Cumulative Proportion 0.90 1.00
+## 
+## Mean item complexity =  1.2
+## Test of the hypothesis that 2 factors are sufficient.
+## 
+## The degrees of freedom for the null model are  10  and the objective function was  2.51
+## The degrees of freedom for the model are 1  and the objective function was  0.01 
+## 
+## The root mean square of the residuals (RMSR) is  0.01 
+## The df corrected root mean square of the residuals is  0.03 
+## 
+## Fit based upon off diagonal values = 1
+## Measures of factor score adequacy             
+##                                                 PA1  PA2
+## Correlation of scores with factors             0.95 0.79
+## Multiple R square of scores with factors       0.91 0.62
+## Minimum correlation of possible factor scores  0.82 0.23
+</pre>
+</div>
+<h2>Principal components analysis</h2>
+<div class="source">
+<pre id="rstudio_console_output" class="GGHFMYIBMOB" tabindex="0"><span class="GGHFMYIBCOB ace_keyword">princomp(formula = ~read + write + math + science + socst, data = hsb2)</span></pre>
+</div>
+<pre>## Call:
+## princomp(formula = ~read + write + math + science + socst, data = hsb2)
+## 
+## Standard deviations:
+##    Comp.1    Comp.2    Comp.3    Comp.4    Comp.5 
+## 18.252929  7.677044  6.213371  5.774331  5.429881 
+## 
+##  5  variables and  200 observations.</pre>
+</div>
+</div>
+</article></main></div><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar" itemscope="" itemtype="https://schema.org/WPSideBar" id="genesis-sidebar-primary"><h2 class="genesis-sidebar-title screen-reader-text">Primary Sidebar</h2></aside><hr><div style="clear:both;">
+          <p style="float:left;"><span class="collapseomatic " id="id2740" tabindex="0" title="Click here to report an error on this page or leave a comment">Click here to report an error on this page or leave a comment</span><span id="swap-id2740" class="colomat-swap" style="display:none;"> </span></p><div id="target-id2740" class="collapseomatic_content " style="display: none;"><div role="form" class="wpcf7" id="wpcf7-f22910-o1" dir="ltr" lang="en-US">
+<div class="screen-reader-response"></div>
+<form action="/r/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-r/#wpcf7-f22910-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input name="_wpcf7" value="22910" type="hidden">
+<input name="_wpcf7_version" value="5.0.4" type="hidden">
+<input name="_wpcf7_locale" value="en_US" type="hidden">
+<input name="_wpcf7_unit_tag" value="wpcf7-f22910-o1" type="hidden">
+<input name="_wpcf7_container_post" value="0" type="hidden">
+</div>
+<p><label for="namefield"> Your Name (required)<br>
+    <span class="wpcf7-form-control-wrap your-name"><input name="your-name" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" id="namefield" aria-required="true" aria-invalid="false" type="text"></span><br>
+</label></p>
+<p><label for="emailfield"> Your Email (must be a valid email for us to receive the report!)<br>
+    <span class="wpcf7-form-control-wrap your-email"><input name="your-email" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" id="emailfield" aria-required="true" aria-invalid="false" type="email"></span><br>
+</label></p>
+<p><label for="commentfield"> Comment/Error Report (required)<br>
+    <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" id="commentfield" aria-required="true" aria-invalid="false"></textarea></span><br>
+</label></p>
+<div class="wpcf7-form-control-wrap"><div data-sitekey="6LfYdSEUAAAAALpzE4-TLY8d8B8SKVQBCnKVDCNH" class="wpcf7-form-control g-recaptcha wpcf7-recaptcha"><div style="width: 304px; height: 78px;"><div><iframe src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/anchor.html" role="presentation" name="a-2qjb4anm7ml6" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" width="304" height="78" frameborder="0"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+<noscript>
+	<div style="width: 302px; height: 422px;">
+		<div style="width: 302px; height: 422px; position: relative;">
+			<div style="width: 302px; height: 422px; position: absolute;">
+				<iframe src="https://www.google.com/recaptcha/api/fallback?k=6LfYdSEUAAAAALpzE4-TLY8d8B8SKVQBCnKVDCNH" frameborder="0" scrolling="no" style="width: 302px; height:422px; border-style: none;">
+				</iframe>
+			</div>
+			<div style="width: 300px; height: 60px; border-style: none; bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px; background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;">
+				<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;">
+				</textarea>
+			</div>
+		</div>
+	</div>
+</noscript>
+</div>
+<p><input value="Send" class="wpcf7-form-control wpcf7-submit" type="submit"><span class="ajax-loader"></span></p>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div><p></p><p style="float:right;">
+          <a href="https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-how-do-i-cite-web-pages-and-programs-from-the-ucla-statistical-consulting-group/">How to cite this page</a>
+          </p></div></div></div>
+
+    <div class="wrapped">
+        <a href="https://oit.ucla.edu/" title="UCLA Office of Information and Technology" id="footer-image">UCLA OIT</a>    
+    </div>
+
+    <div class="ftr-btm">
+        <div class="footer-links">
+        <ol>
+            <li><a href="http://www.ucla.edu/terms-of-use/">© 2018 UC REGENTS TERMS OF USE &amp; PRIVACY POLICY</a></li>
+            <li><a href="https://stats.idre.ucla.edu/">HOME</a></li>
+            <li><a href="https://stats.idre.ucla.edu/contact">CONTACT</a></li>
+        </ol>
+        </div>
+    </div>
+<script>
+			jQuery(function($) {
+			$('.genesis-nav-menu').slicknav();
+			});
+			</script><script type="text/javascript">
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+var colomatpauseInit = '';
+var colomattouchstart = '';
+</script>		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<script type="text/javascript">
+var recaptchaWidgets = [];
+var recaptchaCallback = function() {
+	var forms = document.getElementsByTagName( 'form' );
+	var pattern = /(^|\s)g-recaptcha(\s|$)/;
+
+	for ( var i = 0; i < forms.length; i++ ) {
+		var divs = forms[ i ].getElementsByTagName( 'div' );
+
+		for ( var j = 0; j < divs.length; j++ ) {
+			var sitekey = divs[ j ].getAttribute( 'data-sitekey' );
+
+			if ( divs[ j ].className && divs[ j ].className.match( pattern ) && sitekey ) {
+				var params = {
+					'sitekey': sitekey,
+					'type': divs[ j ].getAttribute( 'data-type' ),
+					'size': divs[ j ].getAttribute( 'data-size' ),
+					'theme': divs[ j ].getAttribute( 'data-theme' ),
+					'badge': divs[ j ].getAttribute( 'data-badge' ),
+					'tabindex': divs[ j ].getAttribute( 'data-tabindex' )
+				};
+
+				var callback = divs[ j ].getAttribute( 'data-callback' );
+
+				if ( callback && 'function' == typeof window[ callback ] ) {
+					params[ 'callback' ] = window[ callback ];
+				}
+
+				var expired_callback = divs[ j ].getAttribute( 'data-expired-callback' );
+
+				if ( expired_callback && 'function' == typeof window[ expired_callback ] ) {
+					params[ 'expired-callback' ] = window[ expired_callback ];
+				}
+
+				var widget_id = grecaptcha.render( divs[ j ], params );
+				recaptchaWidgets.push( widget_id );
+				break;
+			}
+		}
+	}
+};
+
+document.addEventListener( 'wpcf7submit', function( event ) {
+	switch ( event.detail.status ) {
+		case 'spam':
+		case 'mail_sent':
+		case 'mail_failed':
+			for ( var i = 0; i < recaptchaWidgets.length; i++ ) {
+				grecaptcha.reset( recaptchaWidgets[ i ] );
+			}
+	}
+}, false );
+</script>
+<script>
+    jQuery(document).ready(function () {
+		jQuery.post('https://stats.idre.ucla.edu?ga_action=googleanalytics_get_script', {action: 'googleanalytics_get_script'}, function(response) {
+			var F = new Function ( response );
+			return( F() );
+		});
+    });
+</script><script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done"}};var tribe_system_info = {"sysinfo_optin_nonce":"537ffe72a1","clipboard_btn_text":"Copy to clipboard","clipboard_copied_text":"System info copied","clipboard_fail_text":"Press \"Cmd + C\" to copy"};/* ]]> */ </script><script type="text/javascript">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/stats.idre.ucla.edu\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/scripts.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/hoverIntent.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/superfish.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/superfish_002.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/skip-links.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/wp-embed.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/collapse.js"></script>
+<script type="text/javascript" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/api.js"></script>
+<script type="text/css" id="tmpl-tribe_customizer_css">.tribe-events-list .tribe-events-loop .tribe-event-featured,
+				.tribe-events-list #tribe-events-day.tribe-events-loop .tribe-event-featured,
+				.type-tribe_events.tribe-events-photo-event.tribe-event-featured .tribe-events-photo-event-wrap,
+				.type-tribe_events.tribe-events-photo-event.tribe-event-featured .tribe-events-photo-event-wrap:hover {
+					background-color: <%= general_theme.button_bg %>;
+				}
+
+				#tribe-events-content table.tribe-events-calendar .type-tribe_events.tribe-event-featured {
+					background-color: <%= general_theme.button_bg %>;
+				}
+
+				.tribe-events-list-widget .tribe-event-featured,
+				.tribe-events-venue-widget .tribe-event-featured,
+				.tribe-mini-calendar-list-wrapper .tribe-event-featured,
+				.tribe-events-adv-list-widget .tribe-event-featured .tribe-mini-calendar-event {
+					background-color: <%= general_theme.button_bg %>;
+				}
+
+				.tribe-grid-body .tribe-event-featured.tribe-events-week-hourly-single {
+					background-color: rgba(<%= general_theme.button_bg_hex_red %>,<%= general_theme.button_bg_hex_green %>,<%= general_theme.button_bg_hex_blue %>, .7 );
+					border-color: <%= general_theme.button_bg %>;
+				}
+
+				.tribe-grid-body .tribe-event-featured.tribe-events-week-hourly-single:hover {
+					background-color: <%= general_theme.button_bg %>;
+				}
+
+				.tribe-button {
+					background-color: <%= general_theme.button_bg %>;
+					color: <%= general_theme.button_color %>;
+				}
+
+				.tribe-button:hover,
+				.tribe-button:active,
+				.tribe-button:focus {
+					background-color: <%= general_theme.button_bg_hover %>;
+				}
+
+				#tribe-events .tribe-event-featured .tribe-button:hover {
+					color: <%= general_theme.button_color_hover %>;
+				}</script><style type="text/css" id="tribe_customizer_css">.tribe-events-list .tribe-events-loop .tribe-event-featured,
+				.tribe-events-list #tribe-events-day.tribe-events-loop .tribe-event-featured,
+				.type-tribe_events.tribe-events-photo-event.tribe-event-featured .tribe-events-photo-event-wrap,
+				.type-tribe_events.tribe-events-photo-event.tribe-event-featured .tribe-events-photo-event-wrap:hover {
+					background-color: #2b474f;
+				}
+
+				#tribe-events-content table.tribe-events-calendar .type-tribe_events.tribe-event-featured {
+					background-color: #2b474f;
+				}
+
+				.tribe-events-list-widget .tribe-event-featured,
+				.tribe-events-venue-widget .tribe-event-featured,
+				.tribe-mini-calendar-list-wrapper .tribe-event-featured,
+				.tribe-events-adv-list-widget .tribe-event-featured .tribe-mini-calendar-event {
+					background-color: #2b474f;
+				}
+
+				.tribe-grid-body .tribe-event-featured.tribe-events-week-hourly-single {
+					background-color: rgba(43,71,79, .7 );
+					border-color: #2b474f;
+				}
+
+				.tribe-grid-body .tribe-event-featured.tribe-events-week-hourly-single:hover {
+					background-color: #2b474f;
+				}
+
+				.tribe-button {
+					background-color: #2b474f;
+					color: #fff;
+				}
+
+				.tribe-button:hover,
+				.tribe-button:active,
+				.tribe-button:focus {
+					background-color: #101a1d;
+				}
+
+				#tribe-events .tribe-event-featured .tribe-button:hover {
+					color: #000000;
+				}</style>
+
+
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+
+Served from: stats.idre.ucla.edu @ 2018-10-03 13:29:37 by W3 Total Cache
+--><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="What%20statistical%20analysis%20should%20I%20use%253F%20Statistical%20analyses%20using%20R_files/bframe.html" style="width: 100%; height: 100%;" name="c-2qjb4anm7ml6" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" frameborder="0"></iframe></div></div></body></html>
